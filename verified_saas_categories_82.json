@@ -1,0 +1,112 @@
+{
+  "Core Platform & Developer Infrastructure": [
+    "Version Control",
+    "CI/CD Platforms",
+    "Dev Environments (Cloud IDEs)",
+    "Infrastructure-as-Code (IaC)",
+    "CLI Tools",
+    "API Access"
+  ],
+  "Build, Deployment, & Runtime Hosting": [
+    "Static Site Hosting",
+    "Fullstack App Hosting",
+    "Backend/Server Hosting",
+    "Container Hosting",
+    "Edge Function Hosting",
+    "Serverless Functions",
+    "Cold Start Optimized Runtimes",
+    "Warm Instance Support",
+    "Cron Job Hosting",
+    "Background Worker Hosting"
+  ],
+  "Data & Backend Services": [
+    "Database-as-a-Service (DBaaS)",
+    "Object/File Storage",
+    "Caching & Key-Value Stores",
+    "Vector Databases",
+    "GraphQL Backend Services",
+    "Search-as-a-Service",
+    "Authentication",
+    "Authorization",
+    "Realtime Pub/Sub & WebSockets"
+  ],
+  "Monitoring, Observability & DevOps": [
+    "Logging & Log Management",
+    "Metrics & Analytics",
+    "Alerting & Uptime Monitoring",
+    "Application Performance Monitoring (APM)",
+    "Audit Logging",
+    "Secrets & Environment Variable Management",
+    "Cost Monitoring & Billing APIs"
+  ],
+  "Async Processing, Queueing & Workflows": [
+    "Task Queues",
+    "Background Jobs",
+    "Cron Scheduling",
+    "Durable Workflows / Orchestration",
+    "Retry Policies & Dead Letter Queues",
+    "Triggered Jobs"
+  ],
+  "CDN, Networking, & Edge": [
+    "CDN Services",
+    "DNS Management",
+    "Domain Provisioning",
+    "Reverse Proxy / API Gateway",
+    "Load Balancers",
+    "Edge Caching & Smart Routing"
+  ],
+  "Security & Compliance": [
+    "DDoS Protection",
+    "SSL Certificate Auto-Provisioning",
+    "SOC 2 / ISO 27001 / HIPAA Compliance",
+    "GDPR Compliance Tools",
+    "Role-Based Access Control (RBAC)",
+    "Audit Trails"
+  ],
+  "Communication & Notification": [
+    "Email Delivery",
+    "SMS / Voice / WhatsApp APIs",
+    "Push Notifications",
+    "Transactional Messaging",
+    "In-App Messaging APIs"
+  ],
+  "Payments, Billing, & Licensing": [
+    "Payment APIs",
+    "Subscription Management",
+    "Invoicing & Tax Calculation",
+    "Usage-Based Billing",
+    "Real-Time Billing Dashboard"
+  ],
+  "AI/ML & Advanced Workloads": [
+    "Model Hosting",
+    "AI Inference API",
+    "Embedding + Vector Search",
+    "ML Pipeline Hosting"
+  ],
+  "Internal Tools & No-Code/Low-Code": [
+    "Admin Panel Builders",
+    "Workflow Automation",
+    "API Builders / No-Code Backends"
+  ],
+  "Product Analytics & Growth": [
+    "Product Analytics",
+    "Heatmaps & Session Replay",
+    "Feature Flags",
+    "AB Testing",
+    "User Feedback Tools"
+  ],
+  "Data Pipelines & Warehousing": [
+    "ETL Tools",
+    "Data Warehouses",
+    "Data Visualization Dashboards"
+  ],
+  "Documentation, Portability & Meta": [
+    "API Documentation Tools",
+    "Data Ownership / Export Tools",
+    "Self-Hosting Options",
+    "Open Source Licensing",
+    "Team Collaboration Features",
+    "Project Transfer Support",
+    "Multi-region Migration Support"
+  ]
+}
