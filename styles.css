@@ -171,6 +171,48 @@ body {
     color: #7f8c8d;
     font-size: 0.9em;
     line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+.category-progress {
+    margin-top: 15px;
+}
+
+.category-progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 0.8em;
+}
+
+.category-progress-text {
+    color: #3498db;
+    font-weight: bold;
+}
+
+.category-progress-bar {
+    width: 100%;
+    height: 6px;
+    background: #ecf0f1;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.category-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #27ae60, #2ecc71);
+    border-radius: 3px;
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+.category-progress-stats {
+    display: flex;
+    justify-content: space-between;
+    color: #7f8c8d;
+    font-size: 0.75em;
+    margin-top: 5px;
 }
 
 .content-area {
@@ -366,29 +408,54 @@ body {
 
 .search-container {
     margin-bottom: 30px;
-    position: relative;
+}
+
+.search-wrapper {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .search-input {
-    width: 100%;
-    padding: 15px 50px 15px 20px;
-    border: 2px solid #ecf0f1;
-    border-radius: 25px;
-    font-size: 1em;
+    flex: 1;
+    border: none;
     outline: none;
-    transition: border-color 0.3s ease;
+    font-size: 1em;
+    padding: 10px;
+    border-radius: 8px;
+    background: #f8f9fa;
 }
 
 .search-input:focus {
-    border-color: #3498db;
+    background: white;
+    box-shadow: 0 0 0 2px #3498db;
+}
+
+.search-dropdown {
+    border: none;
+    outline: none;
+    font-size: 0.9em;
+    padding: 10px;
+    border-radius: 8px;
+    background: #f8f9fa;
+    color: #2c3e50;
+    cursor: pointer;
+    min-width: 200px;
+}
+
+.search-dropdown:focus {
+    background: white;
+    box-shadow: 0 0 0 2px #3498db;
 }
 
 .search-icon {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
     color: #7f8c8d;
+    font-size: 1.2em;
+    margin-left: 10px;
 }
 
 @media (max-width: 768px) {

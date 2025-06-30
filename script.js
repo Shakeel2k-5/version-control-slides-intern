@@ -569,11 +569,11 @@ let totalTopics = 0;
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
+    loadProgressFromStorage();
     initializeProgress();
     initializeNavigation();
     initializeSearch();
-    loadProgressFromStorage();
-    updateProgressDisplay();
+    updateAllCategoryProgress();
 });
 
 // Initialize progress tracking
@@ -626,6 +626,7 @@ function toggleTopicCompletion(categoryName, topicName) {
     
     saveProgressToStorage();
     updateProgressDisplay();
+    updateCategoryProgress(categoryName);
     
     // Update the button and card appearance
     const button = event.target;
@@ -655,14 +656,28 @@ function initializeNavigation() {
     
     // Create navigation cards
     Object.keys(infrastructureData).forEach((category, index) => {
+        const progress = calculateCategoryProgress(category);
         const navCard = document.createElement('div');
         navCard.className = 'nav-card';
+        navCard.setAttribute('data-category', category);
         navCard.innerHTML = `
             <h3>
                 <span class="count">${index + 1}</span>
                 ${category}
             </h3>
             <p>${infrastructureData[category].description}</p>
+            <div class="category-progress">
+                <div class="category-progress-header">
+                    <span class="category-progress-text">${progress.percentage}%</span>
+                </div>
+                <div class="category-progress-bar">
+                    <div class="category-progress-fill" style="width: ${progress.percentage}%"></div>
+                </div>
+                <div class="category-progress-stats">
+                    <span class="category-completed-topics">${progress.completed} topics</span>
+                    <span class="category-total-topics">of ${progress.total} total</span>
+                </div>
+            </div>
         `;
         
         navCard.addEventListener('click', () => {
@@ -734,15 +749,32 @@ function loadCategoryContent(category) {
     });
 }
 
+// Generate all topic options for dropdown
+function generateTopicOptions() {
+    let options = '<option value="all">All Categories</option>';
+    
+    // Add category options only
+    Object.keys(infrastructureData).forEach(category => {
+        options += `<option value="${category}">📁 ${category}</option>`;
+    });
+    
+    return options;
+}
+
 // Initialize search functionality
 function initializeSearch() {
     const searchInput = document.getElementById('searchInput');
+    const searchDropdown = document.getElementById('searchDropdown');
     
-    searchInput.addEventListener('input', function() {
-        const searchTerm = this.value.toLowerCase();
+    // Populate dropdown with all options
+    searchDropdown.innerHTML = generateTopicOptions();
+    
+    function performSearch() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const selectedOption = searchDropdown.value;
         
-        if (searchTerm.length < 2) {
-            // Show all categories if search is too short
+        if (searchTerm.length < 2 && selectedOption === 'all') {
+            // Show all categories if search is too short and no option selected
             document.querySelectorAll('.nav-card').forEach(card => {
                 card.style.display = 'block';
             });
@@ -754,6 +786,14 @@ function initializeSearch() {
         
         Object.keys(infrastructureData).forEach(category => {
             const categoryData = infrastructureData[category];
+            
+            // If a specific category is selected, only search within that category
+            if (selectedOption !== 'all' && category !== selectedOption) {
+                // Check if the selected option is a topic in this category
+                if (!categoryData.topics[selectedOption]) {
+                    return;
+                }
+            }
             
             // Check if category name matches
             if (category.toLowerCase().includes(searchTerm)) {
@@ -781,7 +821,10 @@ function initializeSearch() {
                 card.style.display = 'none';
             }
         });
-    });
+    }
+    
+    searchInput.addEventListener('input', performSearch);
+    searchDropdown.addEventListener('change', performSearch);
 }
 
 // Scroll to top function
@@ -789,5 +832,49 @@ function scrollToTop() {
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
+    });
+}
+
+// Calculate category progress
+function calculateCategoryProgress(categoryName) {
+    const categoryData = infrastructureData[categoryName];
+    const totalTopics = Object.keys(categoryData.topics).length;
+    let completedCount = 0;
+    
+    Object.keys(categoryData.topics).forEach(topicName => {
+        if (isTopicCompleted(categoryName, topicName)) {
+            completedCount++;
+        }
+    });
+    
+    return {
+        completed: completedCount,
+        total: totalTopics,
+        percentage: totalTopics > 0 ? Math.round((completedCount / totalTopics) * 100) : 0
+    };
+}
+
+// Update category progress display
+function updateCategoryProgress(categoryName) {
+    const progress = calculateCategoryProgress(categoryName);
+    const navCard = document.querySelector(`[data-category="${categoryName}"]`);
+    
+    if (navCard) {
+        const progressFill = navCard.querySelector('.category-progress-fill');
+        const progressText = navCard.querySelector('.category-progress-text');
+        const completedTopics = navCard.querySelector('.category-completed-topics');
+        const totalTopics = navCard.querySelector('.category-total-topics');
+        
+        if (progressFill) progressFill.style.width = `${progress.percentage}%`;
+        if (progressText) progressText.textContent = `${progress.percentage}%`;
+        if (completedTopics) completedTopics.textContent = `${progress.completed} topics`;
+        if (totalTopics) totalTopics.textContent = `of ${progress.total} total`;
+    }
+}
+
+// Update all category progress displays
+function updateAllCategoryProgress() {
+    Object.keys(infrastructureData).forEach(categoryName => {
+        updateCategoryProgress(categoryName);
     });
 } 

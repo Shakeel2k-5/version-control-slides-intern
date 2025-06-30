@@ -30,8 +30,17 @@
         </div>
 
         <div class="search-container">
-            <input type="text" class="search-input" placeholder="Search for any technology or concept..." id="searchInput">
-            <span class="search-icon">🔍</span>
+            <div class="search-wrapper">
+                <input type="text" class="search-input" placeholder="Search for any technology or concept..." id="searchInput">
+                <select class="search-dropdown" id="searchDropdown">
+                    <option value="all">All Categories</option>
+                    <option value="Core Platform & Developer Infrastructure">Core Platform & Developer Infrastructure</option>
+                    <option value="Build, Deployment, & Runtime Hosting">Build, Deployment, & Runtime Hosting</option>
+                    <option value="Data & Backend Services">Data & Backend Services</option>
+                    <option value="Monitoring, Observability & DevOps">Monitoring, Observability & DevOps</option>
+                </select>
+                <span class="search-icon">🔍</span>
+            </div>
         </div>
 
         <div class="navigation" id="navigation">
