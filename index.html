@@ -31,13 +31,8 @@
 
         <div class="search-container">
             <div class="search-wrapper">
-                <input type="text" class="search-input" placeholder="Search for any technology or concept..." id="searchInput">
                 <select class="search-dropdown" id="searchDropdown">
-                    <option value="all">All Categories</option>
-                    <option value="Core Platform & Developer Infrastructure">Core Platform & Developer Infrastructure</option>
-                    <option value="Build, Deployment, & Runtime Hosting">Build, Deployment, & Runtime Hosting</option>
-                    <option value="Data & Backend Services">Data & Backend Services</option>
-                    <option value="Monitoring, Observability & DevOps">Monitoring, Observability & DevOps</option>
+                    <!-- Options will be populated by JavaScript -->
                 </select>
                 <span class="search-icon">🔍</span>
             </div>
@@ -59,6 +54,7 @@
     </div>
 
     <button class="back-to-top" onclick="scrollToTop()">↑</button>
+    <button class="scroll-down" onclick="scrollToContent()">↓</button>
 
     <script src="script.js"></script>
 </body>

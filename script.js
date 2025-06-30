@@ -574,6 +574,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeNavigation();
     initializeSearch();
     updateAllCategoryProgress();
+    loadWelcomeContent(); // Load welcome content by default
 });
 
 // Initialize progress tracking
@@ -681,6 +682,10 @@ function initializeNavigation() {
         `;
         
         navCard.addEventListener('click', () => {
+            // Update dropdown to match the clicked category
+            const searchDropdown = document.getElementById('searchDropdown');
+            searchDropdown.value = category;
+            
             // Remove active class from all cards
             document.querySelectorAll('.nav-card').forEach(card => card.classList.remove('active'));
             // Add active class to clicked card
@@ -690,6 +695,23 @@ function initializeNavigation() {
         });
         
         navigation.appendChild(navCard);
+    });
+}
+
+// Scroll to top function
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+// Scroll to content function
+function scrollToContent() {
+    const contentArea = document.querySelector('.content-area');
+    contentArea.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start' 
     });
 }
 
@@ -741,12 +763,14 @@ function loadCategoryContent(category) {
         </div>
     `;
     
-    // Smooth scroll to content area
-    const contentArea = document.querySelector('.content-area');
-    contentArea.scrollIntoView({ 
-        behavior: 'smooth', 
-        block: 'start' 
-    });
+    // Smooth scroll to content area with a slight delay to ensure content is loaded
+    setTimeout(() => {
+        const contentArea = document.querySelector('.content-area');
+        contentArea.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+        });
+    }, 100);
 }
 
 // Generate all topic options for dropdown
@@ -763,76 +787,53 @@ function generateTopicOptions() {
 
 // Initialize search functionality
 function initializeSearch() {
-    const searchInput = document.getElementById('searchInput');
     const searchDropdown = document.getElementById('searchDropdown');
     
     // Populate dropdown with all options
     searchDropdown.innerHTML = generateTopicOptions();
     
     function performSearch() {
-        const searchTerm = searchInput.value.toLowerCase();
         const selectedOption = searchDropdown.value;
         
-        if (searchTerm.length < 2 && selectedOption === 'all') {
-            // Show all categories if search is too short and no option selected
+        if (selectedOption === 'all') {
+            // Show all categories if "All Categories" is selected
             document.querySelectorAll('.nav-card').forEach(card => {
                 card.style.display = 'block';
+                card.classList.remove('active');
             });
+            // Load welcome content
+            loadWelcomeContent();
             return;
         }
         
-        // Search through categories and topics
-        let foundCategories = new Set();
-        
-        Object.keys(infrastructureData).forEach(category => {
-            const categoryData = infrastructureData[category];
-            
-            // If a specific category is selected, only search within that category
-            if (selectedOption !== 'all' && category !== selectedOption) {
-                // Check if the selected option is a topic in this category
-                if (!categoryData.topics[selectedOption]) {
-                    return;
-                }
-            }
-            
-            // Check if category name matches
-            if (category.toLowerCase().includes(searchTerm)) {
-                foundCategories.add(category);
-            }
-            
-            // Check if any topic matches
-            Object.keys(categoryData.topics).forEach(topicName => {
-                const topic = categoryData.topics[topicName];
-                if (topicName.toLowerCase().includes(searchTerm) ||
-                    topic.description.toLowerCase().includes(searchTerm) ||
-                    topic.analogy.toLowerCase().includes(searchTerm) ||
-                    topic.benefits.some(benefit => benefit.toLowerCase().includes(searchTerm))) {
-                    foundCategories.add(category);
-                }
-            });
-        });
-        
-        // Show/hide navigation cards based on search results
+        // Show only the selected category and load its content
         document.querySelectorAll('.nav-card').forEach((card, index) => {
             const categoryName = Object.keys(infrastructureData)[index];
-            if (foundCategories.has(categoryName)) {
+            if (categoryName === selectedOption) {
                 card.style.display = 'block';
+                card.classList.add('active');
+                // Load the content for the selected category
+                loadCategoryContent(selectedOption);
             } else {
                 card.style.display = 'none';
+                card.classList.remove('active');
             }
         });
     }
     
-    searchInput.addEventListener('input', performSearch);
     searchDropdown.addEventListener('change', performSearch);
 }
 
-// Scroll to top function
-function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
+// Load welcome content
+function loadWelcomeContent() {
+    const content = document.getElementById('content');
+    content.innerHTML = `
+        <div class="module-title">Welcome to Your Technical Guide</div>
+        <div class="module-intro">
+            <p>This comprehensive guide breaks down complex developer infrastructure concepts into simple, business-focused explanations. Each section uses real-world analogies and focuses on the practical benefits for your projects.</p>
+            <p><strong>How to use this guide:</strong> Select a category from the dropdown above to explore the technologies in that area. Each concept includes a simple analogy and clear benefits for project managers.</p>
+        </div>
+    `;
 }
 
 // Calculate category progress
