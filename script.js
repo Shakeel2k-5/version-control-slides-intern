@@ -725,6 +725,13 @@ function loadCategoryContent(category) {
             ${topicsHTML}
         </div>
     `;
+    
+    // Smooth scroll to content area
+    const contentArea = document.querySelector('.content-area');
+    contentArea.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start' 
+    });
 }
 
 // Initialize search functionality
