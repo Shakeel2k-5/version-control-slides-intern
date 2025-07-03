@@ -598,32 +598,41 @@ let totalTopics = 0;
 document.addEventListener('DOMContentLoaded', function() {
     loadProgressFromStorage();
     loadSubcategorySelections();
+    // Always re-initialize progress and update display after loading selections
+    initializeProgress();
+    updateProgressDisplay();
     
-    // Check if user has already selected subcategories
+    // Check if user has selected subcategories
     if (selectedTechSubcategories.size === 5 && selectedNonTechSubcategories.size === 5) {
-        // User has already selected subcategories, show main content
-        document.getElementById('subcategorySelection').style.display = 'none';
-        initializeProgress();
+        // Complete selections - show full content
         initializeNavigation();
         initializeSearch();
         updateAllCategoryProgress();
         loadWelcomeContent();
     } else {
-        // User needs to select subcategories first
-        initializeSubcategorySelection();
-        
-        // Hide main content sections initially
-        const progressSection = document.querySelector('.progress-section');
-        const searchContainer = document.querySelector('.search-container');
-        const navigation = document.getElementById('navigation');
-        const contentArea = document.querySelector('.content-area');
-        
-        if (progressSection) progressSection.style.display = 'none';
-        if (searchContainer) searchContainer.style.display = 'none';
-        if (navigation) navigation.style.display = 'none';
-        if (contentArea) contentArea.style.display = 'none';
+        // Incomplete or no selections - redirect to selection page
+        window.location.href = 'selection.html';
     }
+    
+    // Setup reset button
+    setupResetButton();
 });
+
+// Setup reset button functionality
+function setupResetButton() {
+    const resetButton = document.getElementById('resetFromContent');
+    if (resetButton) {
+        resetButton.addEventListener('click', function() {
+            // Only remove selection and progress keys
+            localStorage.removeItem('selectedTechSubcategories');
+            localStorage.removeItem('selectedNonTechSubcategories');
+            localStorage.removeItem('user_id');
+            localStorage.removeItem('infrastructureGuideProgress');
+            // Redirect to selection page
+            window.location.href = 'selection.html';
+        });
+    }
+}
 
 // Initialize subcategory selection
 function initializeSubcategorySelection() {

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Your Focus Areas - Developer Infrastructure Guide</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Developer Infrastructure Guide</h1>
+            <div class="subtitle">Essential Technical Knowledge for Project Managers</div>
+        </div>
+
+        <div class="subcategory-selection" id="subcategorySelection">
+            <h2>Select Your Focus Areas</h2>
+            <p>Choose 5 technical and 5 non-technical subcategories that are most relevant to your role:</p>
+            
+            <div class="selection-container">
+                <div class="tech-section">
+                    <h3>Technical Subcategories (Select 5)</h3>
+                    <div class="subcategory-grid" id="techSubcategories">
+                        <!-- Tech subcategories will be populated by JavaScript -->
+                    </div>
+                    <div class="selection-counter">
+                        <span id="techSelected">0</span> of 5 selected
+                    </div>
+                </div>
+                
+                <div class="non-tech-section">
+                    <h3>Non-Technical Subcategories (Select 5)</h3>
+                    <div class="subcategory-grid" id="nonTechSubcategories">
+                        <!-- Non-tech subcategories will be populated by JavaScript -->
+                    </div>
+                    <div class="selection-counter">
+                        <span id="nonTechSelected">0</span> of 5 selected
+                    </div>
+                </div>
+            </div>
+            
+            <div class="selection-actions">
+                <button id="startLearning" class="start-button" disabled>Start Learning</button>
+                <button id="resetSelection" class="reset-button">Reset Selection</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.7/dist/umd/supabase.min.js"></script>
+    <script src="selection.js"></script>
+</body>
+</html> 

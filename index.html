@@ -4,57 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Developer Infrastructure Guide for Project Managers</title>
-    <link rel="stylesheet" href="styles.css">
+    <script>
+        // Check if user has already made selections
+        function checkExistingSelections() {
+            const savedTech = localStorage.getItem('selectedTechSubcategories');
+            const savedNonTech = localStorage.getItem('selectedNonTechSubcategories');
+            
+            if (savedTech && savedNonTech) {
+                const techSelections = JSON.parse(savedTech);
+                const nonTechSelections = JSON.parse(savedNonTech);
+                
+                if (techSelections.length === 5 && nonTechSelections.length === 5) {
+                    // User has already selected subcategories, redirect to content page
+                    window.location.href = 'content.html';
+                } else {
+                    // User needs to complete selections, redirect to selection page
+                    window.location.href = 'selection.html';
+                }
+            } else {
+                // No selections found, redirect to selection page
+                window.location.href = 'selection.html';
+            }
+        }
+        
+        // Check selections when page loads
+        checkExistingSelections();
+    </script>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Developer Infrastructure Guide</h1>
-            <div class="subtitle">Essential Technical Knowledge for Project Managers</div>
-        </div>
-
-        <div class="progress-section">
-            <div class="progress-header">
-                <h3>Your Learning Progress</h3>
-                <span class="progress-text">0% Complete</span>
-            </div>
-            <div class="progress-bar-container">
-                <div class="progress-bar" id="progressBar">
-                    <div class="progress-fill" id="progressFill"></div>
-                </div>
-            </div>
-            <div class="progress-stats">
-                <span class="completed-topics">0 topics completed</span>
-                <span class="total-topics">of 82 total topics</span>
-            </div>
-        </div>
-
-        <div class="search-container">
-            <div class="search-wrapper">
-                <select class="search-dropdown" id="searchDropdown">
-                    <!-- Options will be populated by JavaScript -->
-                </select>
-            </div>
-        </div>
-
-        <div class="navigation" id="navigation">
-            <!-- Navigation will be populated by JavaScript -->
-        </div>
-
-        <div class="content-area">
-            <div id="content">
-                <div class="module-title">Welcome to Your Technical Guide</div>
-                <div class="module-intro">
-                    <p>This comprehensive guide breaks down complex developer infrastructure concepts into simple, business-focused explanations. Each section uses real-world analogies and focuses on the practical benefits for your projects.</p>
-                    <p><strong>How to use this guide:</strong> Click on any category above to explore the technologies in that area. Each concept includes a simple analogy and clear benefits for project managers.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <button class="back-to-top" onclick="scrollToTop()">↑</button>
-    <button class="scroll-down" onclick="scrollToContent()">↓</button>
-
-    <script src="script.js"></script>
+    <p>Checking your selections...</p>
 </body>
 </html> 

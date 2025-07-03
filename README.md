@@ -1,40 +1,79 @@
 # Developer Infrastructure Guide for Project Managers
 
-A comprehensive, interactive guide that breaks down complex developer infrastructure concepts into simple, business-focused explanations for project managers and non-technical stakeholders.
+A comprehensive, interactive guide that breaks down complex developer infrastructure concepts into simple, business-focused explanations for project managers.
 
-## 🌟 Features
+## Features
 
-- **82 Essential Topics**: Covering all major developer infrastructure categories
-- **Product Manager Focused**: Analogies and explanations tailored for business stakeholders
-- **Interactive Progress Tracking**: Mark topics as completed and track your learning progress
-- **Search Functionality**: Quickly find specific technologies or concepts
-- **Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
-- **Local Storage**: Your progress is saved locally in your browser
+### 🎯 Personalized Learning Path
+- **Subcategory Selection**: Choose 5 technical and 5 non-technical subcategories that are most relevant to your role
+- **Focused Content**: Only see content related to your selected areas of interest
+- **Progress Tracking**: Monitor your learning progress across selected topics
 
-## 📚 Categories Covered
+### 📚 Interactive Learning Experience
+- **Real-world Analogies**: Each concept explained using familiar business analogies
+- **Practical Benefits**: Clear explanation of how each technology benefits your projects
+- **Visual Progress**: Track completion status with progress bars and counters
 
-1. **Core Platform & Developer Infrastructure** - Version control, CI/CD, development environments
-2. **Build, Deployment, & Runtime Hosting** - Static sites, fullstack apps, serverless functions
-3. **Data & Backend Services** - Databases, storage, authentication, real-time features
-4. **Monitoring, Observability & DevOps** - Logging, metrics, alerting, cost monitoring
-5. **Async Processing, Queueing & Workflows** - Background jobs, task queues, scheduling
-6. **CDN, Networking, & Edge** - Content delivery, DNS, load balancing
-7. **Security & Compliance** - DDoS protection, SSL certificates, compliance tools
-8. **Communication & Notification** - Email, SMS, push notifications
-9. **Payments, Billing, & Licensing** - Payment processing, subscription management
-10. **AI/ML & Advanced Workloads** - Model hosting, AI inference, vector search
-11. **Internal Tools & No-Code/Low-Code** - Admin panels, workflow automation
-12. **Product Analytics & Growth** - User analytics, A/B testing, feedback tools
-13. **Data Pipelines & Warehousing** - ETL tools, data warehouses, visualization
-14. **Documentation, Portability & Meta** - API docs, data export, collaboration features
+### 🔍 Smart Navigation
+- **Category-based Organization**: Content organized into logical infrastructure categories
+- **Search Functionality**: Quick access to specific categories via dropdown
+- **Responsive Design**: Works seamlessly on desktop and mobile devices
 
-## 🚀 Getting Started
+## How to Use
 
-1. Visit the live site: [https://shakeel2k-5.github.io/deployment-platform-slides-repo/](https://shakeel2k-5.github.io/deployment-platform-slides-repo/)
-2. Browse through the categories or use the search function
-3. Click on topics to learn more about each technology
-4. Mark topics as completed to track your progress
-5. Your progress is automatically saved in your browser
+1. **Initial Setup**: On first visit, select 5 technical and 5 non-technical subcategories that match your learning goals
+2. **Browse Categories**: Click on category cards to explore related technologies
+3. **Mark Progress**: Use the "Mark as Done" buttons to track your learning progress
+4. **Search & Filter**: Use the dropdown to quickly navigate between categories
+5. **Track Progress**: Monitor your overall completion percentage and category-specific progress
+
+## Technical Categories
+
+The guide covers essential infrastructure areas including:
+- Core Platform & Developer Infrastructure
+- Build, Deployment, & Runtime Hosting
+- Data & Backend Services
+- Monitoring, Observability & DevOps
+- Async Processing, Queueing & Workflows
+- CDN, Networking, & Edge
+- Security & Compliance
+- Communication & Notification
+- Payments, Billing, & Licensing
+- AI/ML & Advanced Workloads
+- Internal Tools & No-Code/Low-Code
+- Product Analytics & Growth
+- Data Pipelines & Warehousing
+- Documentation, Portability & Meta
+
+## Getting Started
+
+1. Open `index.html` in your web browser
+2. Select your focus areas from the subcategory selection interface
+3. Click "Start Learning" to begin your personalized learning journey
+4. Your selections and progress are automatically saved in your browser
+
+## Browser Compatibility
+
+This application works best in modern browsers that support:
+- ES6 JavaScript features
+- CSS Grid and Flexbox
+- Local Storage API
+
+## Local Development
+
+To run this locally:
+```bash
+# Using Python 3
+python3 -m http.server 8000
+
+# Using Node.js
+npx http-server
+
+# Using PHP
+php -S localhost:8000
+```
+
+Then open `http://localhost:8000` in your browser.
 
 ## 🛠️ Technology Stack
 
