@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', function() {
     loadSubcategorySelections();
     
     // Check if user has already made selections
-    if (selectedTechSubcategories.size === 5 && selectedNonTechSubcategories.size === 5) {
+    if (selectedTechSubcategories.size === 8 && selectedNonTechSubcategories.size === 2) {
         // User has already selected subcategories, redirect to content page
         window.location.href = 'content.html';
     } else {
@@ -219,8 +219,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Initialize subcategory selection
-function initializeSubcategorySelection() {
-    populateSubcategoryGrids();
+async function initializeSubcategorySelection() {
+    await populateSubcategoryGrids();
     updateSelectionCounters();
     setupSubcategoryEventListeners();
 }
@@ -229,12 +229,16 @@ function initializeSubcategorySelection() {
 function loadSubcategorySelections() {
     const savedTech = localStorage.getItem('selectedTechSubcategories');
     const savedNonTech = localStorage.getItem('selectedNonTechSubcategories');
+    const savedName = localStorage.getItem('intern_name');
     
     if (savedTech) {
         selectedTechSubcategories = new Set(JSON.parse(savedTech));
     }
     if (savedNonTech) {
         selectedNonTechSubcategories = new Set(JSON.parse(savedNonTech));
+    }
+    if (savedName) {
+        document.getElementById('internName').value = savedName;
     }
 }
 
@@ -245,25 +249,32 @@ function saveSubcategorySelections() {
 }
 
 // Populate the subcategory grids
-function populateSubcategoryGrids() {
+async function populateSubcategoryGrids() {
     const techGrid = document.getElementById('techSubcategories');
     const nonTechGrid = document.getElementById('nonTechSubcategories');
     
-    // Populate tech subcategories
-    techSubcategories.forEach(subcategory => {
-        const item = createSubcategoryItem(subcategory, 'tech');
+    // Fetch current subcategory counts from database
+    const subcategoryCounts = await fetchSubcategoryCounts();
+    
+    // Create shuffled copies of the arrays
+    const shuffledTechSubcategories = [...techSubcategories].sort(() => Math.random() - 0.5);
+    const shuffledNonTechSubcategories = [...nonTechSubcategories].sort(() => Math.random() - 0.5);
+    
+    // Populate tech subcategories in random order
+    shuffledTechSubcategories.forEach(subcategory => {
+        const item = createSubcategoryItem(subcategory, 'tech', subcategoryCounts);
         techGrid.appendChild(item);
     });
     
-    // Populate non-tech subcategories
-    nonTechSubcategories.forEach(subcategory => {
-        const item = createSubcategoryItem(subcategory, 'non-tech');
+    // Populate non-tech subcategories in random order
+    shuffledNonTechSubcategories.forEach(subcategory => {
+        const item = createSubcategoryItem(subcategory, 'non-tech', subcategoryCounts);
         nonTechGrid.appendChild(item);
     });
 }
 
 // Create a subcategory item element
-function createSubcategoryItem(subcategoryName, type) {
+function createSubcategoryItem(subcategoryName, type, subcategoryCounts = {}) {
     const item = document.createElement('div');
     item.className = 'subcategory-item';
     item.dataset.subcategory = subcategoryName;
@@ -279,9 +290,19 @@ function createSubcategoryItem(subcategoryName, type) {
         }
     });
     
+    // Check if this subcategory is disabled due to high count
+    const currentCount = subcategoryCounts[subcategoryName] || 0;
+    const isDisabled = currentCount >= 12;
+    
+    if (isDisabled) {
+        item.classList.add('disabled');
+        item.dataset.disabled = 'true';
+    }
+    
     item.innerHTML = `
         <h4><span class="subcategory-icon">${icon}</span> ${subcategoryName}</h4>
         <p class="subcategory-description">${description}</p>
+        ${isDisabled ? '<div class="disabled-message">Maximum selections reached (12)</div>' : ''}
     `;
     
     // Mark as selected if already selected
@@ -308,22 +329,35 @@ function setupSubcategoryEventListeners() {
     
     // Start learning button
     document.getElementById('startLearning').addEventListener('click', async function() {
-        if (selectedTechSubcategories.size === 5 && selectedNonTechSubcategories.size === 5) {
+        if (selectedTechSubcategories.size === 8 && selectedNonTechSubcategories.size === 2) {
+            // Get intern name
+            const internName = document.getElementById('internName').value.trim();
+            if (!internName) {
+                alert('Please enter your name before proceeding.');
+                return;
+            }
+            
             // Get or create user_id
             let user_id = localStorage.getItem('user_id');
             if (!user_id) {
                 user_id = crypto.randomUUID();
                 localStorage.setItem('user_id', user_id);
             }
+            
+            // Store name in localStorage
+            localStorage.setItem('intern_name', internName);
+            
             // Prepare data
             const techTopics = Array.from(selectedTechSubcategories);
             const nonTechTopics = Array.from(selectedNonTechSubcategories);
+            
             // Store in Supabase
             const { data, error } = await supabaseClient
                 .from('user_selections')
                 .insert([
                     {
                         user_id: user_id,
+                        name_of_the_intern: internName,
                         tech_topics: techTopics,
                         non_tech_topics: nonTechTopics
                     }
@@ -332,6 +366,10 @@ function setupSubcategoryEventListeners() {
                 alert('Error saving your selections: ' + error.message);
                 return;
             }
+            
+            // Update subcategory counts
+            await updateSubcategoryCounts(techTopics, nonTechTopics);
+            
             // Redirect to content page
             window.location.href = 'content.html';
         }
@@ -349,25 +387,44 @@ function setupSubcategoryEventListeners() {
 }
 
 // Toggle subcategory selection
-function toggleSubcategorySelection(subcategoryName, type, item) {
-    const maxSelections = 5;
+async function toggleSubcategorySelection(subcategoryName, type, item) {
+    // Check if item is disabled
+    if (item.dataset.disabled === 'true') {
+        console.log(`Cannot select ${subcategoryName} - maximum selections reached`);
+        return;
+    }
+    
+    const maxTechSelections = 8;
+    const maxNonTechSelections = 2;
+    
+    let wasSelected = false;
+    let isNowSelected = false;
     
     if (type === 'tech') {
-        if (selectedTechSubcategories.has(subcategoryName)) {
+        wasSelected = selectedTechSubcategories.has(subcategoryName);
+        if (wasSelected) {
             selectedTechSubcategories.delete(subcategoryName);
             item.classList.remove('selected');
-        } else if (selectedTechSubcategories.size < maxSelections) {
+        } else if (selectedTechSubcategories.size < maxTechSelections) {
             selectedTechSubcategories.add(subcategoryName);
             item.classList.add('selected');
+            isNowSelected = true;
         }
     } else {
-        if (selectedNonTechSubcategories.has(subcategoryName)) {
+        wasSelected = selectedNonTechSubcategories.has(subcategoryName);
+        if (wasSelected) {
             selectedNonTechSubcategories.delete(subcategoryName);
             item.classList.remove('selected');
-        } else if (selectedNonTechSubcategories.size < maxSelections) {
+        } else if (selectedNonTechSubcategories.size < maxNonTechSelections) {
             selectedNonTechSubcategories.add(subcategoryName);
             item.classList.add('selected');
+            isNowSelected = true;
         }
+    }
+    
+    // Update count in database if selection changed
+    if (wasSelected !== isNowSelected) {
+        await updateSingleSubcategoryCount(subcategoryName, isNowSelected);
     }
     
     updateSelectionCounters();
@@ -384,13 +441,13 @@ function updateSelectionCounters() {
     const techGrid = document.getElementById('techSubcategories');
     const nonTechGrid = document.getElementById('nonTechSubcategories');
     
-    if (selectedTechSubcategories.size >= 5) {
+    if (selectedTechSubcategories.size >= 8) {
         techGrid.classList.add('max-selected');
     } else {
         techGrid.classList.remove('max-selected');
     }
     
-    if (selectedNonTechSubcategories.size >= 5) {
+    if (selectedNonTechSubcategories.size >= 2) {
         nonTechGrid.classList.add('max-selected');
     } else {
         nonTechGrid.classList.remove('max-selected');
@@ -400,29 +457,43 @@ function updateSelectionCounters() {
 // Update start button state
 function updateStartButton() {
     const startButton = document.getElementById('startLearning');
-    const isComplete = selectedTechSubcategories.size === 5 && selectedNonTechSubcategories.size === 5;
+    const isComplete = selectedTechSubcategories.size === 8 && selectedNonTechSubcategories.size === 2;
     startButton.disabled = !isComplete;
 }
 
 // Reset subcategory selection
-function resetSubcategorySelection() {
+async function resetSubcategorySelection() {
     // Add visual feedback
     const resetButton = document.getElementById('resetSelection');
     const originalText = resetButton.textContent;
     resetButton.textContent = 'Resetting...';
     resetButton.disabled = true;
     
+    // Store current selections before clearing
+    const currentTechSelections = new Set(selectedTechSubcategories);
+    const currentNonTechSelections = new Set(selectedNonTechSubcategories);
+    
     // Clear selections
     selectedTechSubcategories.clear();
     selectedNonTechSubcategories.clear();
     
-    // Remove progress as well
+    // Clear name input
+    document.getElementById('internName').value = '';
+    
+    // Remove progress and name from localStorage
     localStorage.removeItem('infrastructureGuideProgress');
+    localStorage.removeItem('intern_name');
     
     // Remove selected class from all items
     document.querySelectorAll('.subcategory-item').forEach(item => {
         item.classList.remove('selected');
     });
+    
+    // Decrement counts for all previously selected subcategories
+    const allPreviousSelections = [...currentTechSelections, ...currentNonTechSelections];
+    for (const subcategory of allPreviousSelections) {
+        await updateSingleSubcategoryCount(subcategory, false); // false = decrement
+    }
     
     updateSelectionCounters();
     updateStartButton();
@@ -433,4 +504,94 @@ function resetSubcategorySelection() {
         resetButton.textContent = originalText;
         resetButton.disabled = false;
     }, 500);
+}
+
+// Function to update a single subcategory count in the database
+async function updateSingleSubcategoryCount(subcategoryName, isSelected) {
+    try {
+        // First, get the current count
+        const { data: currentData, error: fetchError } = await supabaseClient
+            .from('subcategory_counts')
+            .select('no_of_ppl_selected_the_subcategory')
+            .eq('subcategory_name', subcategoryName)
+            .single();
+        
+        if (fetchError) {
+            console.error(`Error fetching current count for ${subcategoryName}:`, fetchError);
+            return;
+        }
+        
+        const currentCount = currentData?.no_of_ppl_selected_the_subcategory || 0;
+        const newCount = isSelected ? currentCount + 1 : Math.max(0, currentCount - 1);
+        
+        // Update with the new count
+        const { error: updateError } = await supabaseClient
+            .from('subcategory_counts')
+            .update({ 
+                no_of_ppl_selected_the_subcategory: newCount,
+                updated_at: new Date().toISOString()
+            })
+            .eq('subcategory_name', subcategoryName);
+        
+        if (updateError) {
+            console.error(`Error updating count for ${subcategoryName}:`, updateError);
+        } else {
+            console.log(`Count ${isSelected ? 'incremented' : 'decremented'} for ${subcategoryName}: ${currentCount} -> ${newCount}`);
+        }
+    } catch (error) {
+        console.error('Error updating subcategory count:', error);
+    }
+}
+
+// Function to fetch subcategory counts from the database
+async function fetchSubcategoryCounts() {
+    try {
+        const { data, error } = await supabaseClient
+            .from('subcategory_counts')
+            .select('subcategory_name, no_of_ppl_selected_the_subcategory');
+        
+        if (error) {
+            console.error('Error fetching subcategory counts:', error);
+            return {};
+        }
+        
+        // Convert to object for easy lookup
+        const counts = {};
+        data.forEach(row => {
+            counts[row.subcategory_name] = row.no_of_ppl_selected_the_subcategory || 0;
+        });
+        
+        console.log('Fetched subcategory counts:', counts);
+        return counts;
+    } catch (error) {
+        console.error('Error fetching subcategory counts:', error);
+        return {};
+    }
+}
+
+// Function to update subcategory counts in the database
+async function updateSubcategoryCounts(techTopics, nonTechTopics) {
+    try {
+        // Combine all selected topics
+        const allSelectedTopics = [...techTopics, ...nonTechTopics];
+        
+        // Update count for each selected subcategory
+        for (const subcategory of allSelectedTopics) {
+            const { error } = await supabaseClient
+                .from('subcategory_counts')
+                .update({ 
+                    no_of_ppl_selected_the_subcategory: supabaseClient.rpc('increment', { x: 1 }),
+                    updated_at: new Date().toISOString()
+                })
+                .eq('subcategory_name', subcategory);
+            
+            if (error) {
+                console.error(`Error updating count for ${subcategory}:`, error);
+            }
+        }
+        
+        console.log('Subcategory counts updated successfully');
+    } catch (error) {
+        console.error('Error updating subcategory counts:', error);
+    }
 } 

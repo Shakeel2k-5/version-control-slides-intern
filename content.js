@@ -198,399 +198,285 @@ const infrastructureData = {
                 benefits: ["Compliance requirements", "Security investigation capability", "Change accountability", "Regulatory audit support"]
             },
             "Secrets & Environment Variable Management": {
-                icon: "🗝️",
+                icon: "🔒",
                 analogy: "Think of it like a Digital Safe",
-                description: "Securely stores and manages sensitive information like passwords and API keys, like a bank vault for your application's secrets.",
-                benefits: ["Secure credential storage", "Centralized secret management", "Access control and rotation", "Compliance and security"]
+                description: "Securely stores and manages sensitive information like passwords, API keys, and configuration settings that your application needs to function.",
+                benefits: ["Secure credential management", "Centralized configuration", "Access control", "Audit trail for sensitive data"]
             },
-            "Cost Monitoring & Billing APIs": {
-                icon: "💰",
-                analogy: "Think of it like an Expense Tracker",
-                description: "Tracks and manages your cloud spending in real-time, like having a personal finance app for your infrastructure costs.",
-                benefits: ["Real-time cost visibility", "Budget alerts and controls", "Usage optimization insights", "Billing automation"]
+            "Error Tracking & Monitoring": {
+                icon: "🐛",
+                analogy: "Think of it like a Bug Reporting System",
+                description: "Automatically captures and reports errors in your application, helping you identify and fix issues before they affect users.",
+                benefits: ["Proactive error detection", "Detailed error context", "Performance impact tracking", "Automatic alerting"]
+            },
+            "Distributed Tracing": {
+                icon: "🕵️",
+                analogy: "Think of it like a Detective Following Clues",
+                description: "Tracks requests as they flow through your application's different services, helping you understand performance bottlenecks and dependencies.",
+                benefits: ["Request flow visualization", "Performance bottleneck identification", "Service dependency mapping", "Root cause analysis"]
             }
         }
     },
-    "Async Processing, Queueing & Workflows": {
-        description: "Systems that handle background tasks, scheduling, and complex workflows to keep your application responsive and reliable.",
+    "Background Jobs & Workflows": {
+        description: "Tools and services for handling asynchronous tasks, background processing, and workflow orchestration.",
         topics: {
             "Task Queues": {
                 icon: "📋",
-                analogy: "Think of it like a To-Do List Manager",
-                description: "Organizes and processes background tasks in order, like having an efficient assistant who manages your to-do list and completes tasks systematically.",
-                benefits: ["Organized task processing", "Reliable task completion", "Load balancing", "Failure recovery"]
+                analogy: "Think of it like a Restaurant Order Queue",
+                description: "A system that manages and processes tasks in order, like a restaurant kitchen that handles orders one by one to ensure quality and prevent chaos.",
+                benefits: ["Ordered task processing", "Reliable job execution", "Scalable workload handling", "Prevents system overload"]
             },
             "Background Jobs": {
-                icon: "🔄",
-                analogy: "Think of it like Invisible Assistants",
-                description: "Handles time-consuming tasks behind the scenes while your application stays responsive, like having invisible assistants doing work while you focus on customers.",
-                benefits: ["Non-blocking operations", "Improved user experience", "Scalable processing", "Resource optimization"]
+                icon: "🎭",
+                analogy: "Think of it like a Backstage Crew",
+                description: "Processes that run behind the scenes while users continue using your application, like stagehands working backstage during a performance.",
+                benefits: ["Non-blocking user experience", "Improved application performance", "Asynchronous processing", "Better resource utilization"]
             },
             "Cron Scheduling": {
                 icon: "⏰",
-                analogy: "Think of it like Automated Calendar Reminders",
-                description: "Automatically runs tasks at specific times or intervals, like having a super-reliable calendar system that never forgets to execute important recurring tasks.",
-                benefits: ["Automated recurring tasks", "Reliable scheduling", "Time-based operations", "Reduced manual work"]
+                analogy: "Think of it like a Digital Alarm Clock",
+                description: "Automated task scheduling that runs jobs at specific times or intervals, like setting multiple alarms for different daily tasks.",
+                benefits: ["Automated task execution", "Reliable scheduling", "Perfect for maintenance tasks", "Time-based automation"]
             },
             "Durable Workflows / Orchestration": {
-                icon: "🎼",
-                analogy: "Think of it like a Symphony Conductor",
-                description: "Coordinates complex multi-step processes across different systems, like a conductor ensuring every musician plays their part at the right time.",
-                benefits: ["Complex process coordination", "Fault-tolerant workflows", "Multi-system integration", "Process visibility"]
-            },
-            "Retry Policies & Dead Letter Queues": {
-                icon: "🔁",
-                analogy: "Think of it like Persistent Customer Service",
-                description: "Automatically retries failed tasks and handles persistent failures gracefully, like customer service that keeps trying to help but escalates unresolvable issues.",
-                benefits: ["Automatic failure recovery", "Persistent issue handling", "System reliability", "Error management"]
-            },
-            "Triggered Jobs": {
-                icon: "⚡",
-                analogy: "Think of it like Motion Sensor Lights",
-                description: "Automatically executes tasks when specific events occur, like motion sensor lights that turn on when someone enters a room.",
-                benefits: ["Event-driven automation", "Real-time responsiveness", "Efficient resource usage", "Reactive processing"]
+                icon: "🔄",
+                analogy: "Think of it like a Recipe with Multiple Steps",
+                description: "Complex, multi-step processes that can be paused, resumed, and managed like following a detailed recipe with checkpoints.",
+                benefits: ["Complex process management", "Fault-tolerant workflows", "State persistence", "Business process automation"]
             }
         }
     },
-    "CDN, Networking, & Edge": {
-        description: "Infrastructure that delivers your content quickly and reliably to users around the world.",
+    "Networking & Security": {
+        description: "Essential networking, security, and infrastructure services for modern applications.",
         topics: {
             "CDN Services": {
                 icon: "🌐",
                 analogy: "Think of it like Global Express Delivery",
-                description: "Stores copies of your content in multiple locations worldwide, so users get faster access from the nearest location, like having express delivery hubs in every city.",
-                benefits: ["Faster global content delivery", "Reduced server load", "Improved user experience", "Better SEO performance"]
+                description: "Content delivery networks that serve your content from locations closest to users worldwide, like having warehouses in every city for instant delivery.",
+                benefits: ["Global fast content delivery", "Reduced server load", "Improved user experience", "Automatic scaling"]
             },
             "DNS Management": {
-                icon: "🗂️",
-                analogy: "Think of it like Internet Phone Book",
-                description: "Translates human-readable domain names into computer addresses, like a phone book that converts names into phone numbers for the internet.",
-                benefits: ["Domain name resolution", "Traffic routing control", "Failover capabilities", "Global accessibility"]
+                icon: "🔗",
+                analogy: "Think of it like a Global Address Book",
+                description: "Manages how domain names translate to IP addresses, like a worldwide directory that helps people find your digital location.",
+                benefits: ["Reliable domain routing", "Traffic management", "Failover capabilities", "Global accessibility"]
             },
             "Domain Provisioning": {
-                icon: "🏷️",
-                analogy: "Think of it like Digital Real Estate",
-                description: "Automatically registers and manages domain names for your applications, like having a real estate agent who handles all property paperwork automatically.",
-                benefits: ["Automated domain management", "SSL certificate integration", "Brand protection", "Scalable domain operations"]
+                icon: "🌍",
+                analogy: "Think of it like Automated Real Estate Registration",
+                description: "Automated domain registration and management, like having a service that handles all the paperwork for buying and managing digital property.",
+                benefits: ["Automated domain setup", "Centralized management", "Bulk domain operations", "Compliance handling"]
             },
             "Reverse Proxy / API Gateway": {
                 icon: "🚪",
-                analogy: "Think of it like a Hotel Concierge",
-                description: "Acts as a smart intermediary that routes requests to the right services, like a concierge who directs guests to the right hotel services based on their needs.",
-                benefits: ["Request routing and management", "Security and rate limiting", "API versioning support", "Load distribution"]
+                analogy: "Think of it like a Smart Building Receptionist",
+                description: "Routes and manages incoming requests to the right services, like a receptionist who directs visitors to the correct department.",
+                benefits: ["Centralized traffic management", "Load balancing", "Security enforcement", "API rate limiting"]
             },
-            "Load Balancers": {
-                icon: "⚖️",
-                analogy: "Think of it like Traffic Control",
-                description: "Distributes incoming requests across multiple servers to prevent overload, like traffic controllers ensuring no single road gets overwhelmed during rush hour.",
-                benefits: ["Even traffic distribution", "High availability", "Improved performance", "Automatic failover"]
-            },
-            "Edge Caching & Smart Routing": {
-                icon: "🧠",
-                analogy: "Think of it like Smart GPS Navigation",
-                description: "Intelligently caches content and routes traffic for optimal performance, like GPS that not only finds the fastest route but remembers and improves based on traffic patterns.",
-                benefits: ["Intelligent content delivery", "Reduced latency", "Optimized routing", "Adaptive performance"]
-            }
-        }
-    },
-    "Security & Compliance": {
-        description: "Essential security measures and compliance tools to protect your application and meet regulatory requirements.",
-        topics: {
             "DDoS Protection": {
                 icon: "🛡️",
-                analogy: "Think of it like Digital Bodyguards",
-                description: "Protects your application from overwhelming malicious traffic attacks, like having professional bodyguards who filter out troublemakers while letting legitimate visitors through.",
-                benefits: ["Attack mitigation", "Service availability protection", "Automatic threat detection", "Business continuity"]
+                analogy: "Think of it like a Digital Security Guard",
+                description: "Protects your application from malicious traffic attacks, like having security guards that filter out unwanted visitors.",
+                benefits: ["Automatic attack mitigation", "Uptime protection", "Traffic filtering", "Peace of mind security"]
             },
             "SSL Certificate Auto-Provisioning": {
                 icon: "🔒",
-                analogy: "Think of it like Automatic Security Badges",
-                description: "Automatically creates and maintains security certificates that encrypt data between users and your application, like automatic security badge renewal for building access.",
-                benefits: ["Automatic encryption setup", "Certificate maintenance", "Trust and credibility", "Search engine benefits"]
-            },
-            "SOC 2 / ISO 27001 / HIPAA Compliance": {
-                icon: "📋",
-                analogy: "Think of it like Professional Certifications",
-                description: "Industry-standard security and privacy certifications that demonstrate your platform meets strict professional requirements, like medical or legal professional certifications.",
-                benefits: ["Industry trust and credibility", "Regulatory compliance", "Risk reduction", "Competitive advantage"]
-            },
-            "GDPR Compliance Tools": {
-                icon: "🇪🇺",
-                analogy: "Think of it like Privacy Rights Manager",
-                description: "Tools that help you respect user privacy rights according to European regulations, like having a privacy rights advocate ensuring all user data is handled properly.",
-                benefits: ["Legal compliance", "User privacy protection", "Avoid regulatory penalties", "International market access"]
+                analogy: "Think of it like Automatic Lock Installation",
+                description: "Automatically manages SSL certificates for secure HTTPS connections, like having a service that installs and renews locks automatically.",
+                benefits: ["Automatic security setup", "Certificate renewal", "HTTPS enforcement", "Zero maintenance"]
             },
             "Role-Based Access Control (RBAC)": {
-                icon: "👥",
-                analogy: "Think of it like Organizational Hierarchy",
-                description: "Controls who can access what based on their role in the organization, like how different job titles have different access levels in a company building.",
-                benefits: ["Granular access control", "Security through organization", "Compliance support", "Administrative efficiency"]
-            },
-            "Audit Trails": {
-                icon: "👣",
-                analogy: "Think of it like Digital Footprints",
-                description: "Records every action taken in your system with timestamps and user information, like security cameras that track who did what and when.",
-                benefits: ["Complete activity history", "Security investigation support", "Compliance documentation", "Regulatory audit trails"]
+                icon: "👤",
+                analogy: "Think of it like a Building Access Card System",
+                description: "Manages user permissions and access levels, like access cards that open different doors based on your clearance level.",
+                benefits: ["Granular permission control", "Security compliance", "User access management", "Audit trail capability"]
             }
         }
     },
-    "Communication & Notification": {
-        description: "Services that enable communication and notifications between your application and users.",
+    "Communication & Notifications": {
+        description: "Services for sending emails, SMS, push notifications, and other communication channels.",
         topics: {
             "Email Delivery": {
                 icon: "📧",
-                analogy: "Think of it like a Digital Post Office",
-                description: "Reliable email delivery service that ensures your application's emails reach users' inboxes, like a modern post office that guarantees delivery.",
-                benefits: ["High deliverability rates", "Email analytics and tracking", "Template management", "Automated email workflows"]
+                analogy: "Think of it like a Professional Mail Service",
+                description: "Reliable email sending with delivery tracking and analytics, like having a professional mail service that ensures your letters reach their destination.",
+                benefits: ["High deliverability rates", "Delivery tracking", "Email analytics", "Compliance support"]
             },
             "SMS / Voice / WhatsApp APIs": {
                 icon: "📱",
                 analogy: "Think of it like a Multi-Channel Communication Hub",
-                description: "Send messages through multiple channels - SMS, voice calls, and WhatsApp - like having a communication center that can reach users wherever they are.",
-                benefits: ["Multi-channel messaging", "High engagement rates", "Global reach", "Real-time delivery confirmation"]
+                description: "APIs for sending messages across multiple communication channels, like having a central switchboard that can reach people through any device.",
+                benefits: ["Multi-channel messaging", "High engagement rates", "Global reach", "Flexible communication options"]
             },
             "Push Notifications": {
                 icon: "🔔",
-                analogy: "Think of it like a Digital Butler",
-                description: "Sends instant notifications to users' devices, like having a butler who immediately informs you of important updates.",
-                benefits: ["Instant user engagement", "High visibility", "Targeted messaging", "Rich notification content"]
-            },
-            "Transactional Messaging": {
-                icon: "💬",
-                analogy: "Think of it like Automated Customer Service",
-                description: "Handles important business communications like receipts, confirmations, and alerts automatically.",
-                benefits: ["Automated communication", "Consistent messaging", "Reliable delivery", "Compliance with regulations"]
-            },
-            "In-App Messaging APIs": {
-                icon: "💭",
-                analogy: "Think of it like an Internal Communication System",
-                description: "Enables real-time messaging within your application, like having an internal chat system for your users.",
-                benefits: ["Real-time communication", "Enhanced user engagement", "Contextual messaging", "Seamless integration"]
+                analogy: "Think of it like a Digital Town Crier",
+                description: "Real-time notifications delivered directly to users' devices, like having a town crier who can instantly announce important news to everyone.",
+                benefits: ["Instant user engagement", "High visibility", "Targeted messaging", "Real-time communication"]
             }
         }
     },
-    "Payments, Billing, & Licensing": {
-        description: "Complete payment processing, billing management, and licensing solutions for your business.",
+    "Payments & Billing": {
+        description: "Payment processing, subscription management, and billing services for applications.",
         topics: {
             "Payment APIs": {
                 icon: "💳",
                 analogy: "Think of it like a Digital Cash Register",
-                description: "Process payments securely from customers, like having a modern cash register that accepts all payment methods.",
-                benefits: ["Multiple payment methods", "Secure transactions", "Global payment support", "Fraud protection"]
+                description: "Secure payment processing for transactions, like having a modern cash register that handles all payment methods securely.",
+                benefits: ["Secure payment processing", "Multiple payment methods", "Fraud protection", "Compliance with standards"]
             },
             "Subscription Management": {
-                icon: "🔄",
+                icon: "📅",
                 analogy: "Think of it like a Membership Management System",
-                description: "Handles recurring billing and subscription lifecycle, like managing gym memberships with automatic renewals.",
-                benefits: ["Automated billing cycles", "Flexible pricing plans", "Subscription analytics", "Easy upgrades/downgrades"]
+                description: "Tools for managing recurring billing and customer subscriptions, like a gym membership system that handles renewals and payments.",
+                benefits: ["Automated billing cycles", "Customer lifecycle management", "Revenue optimization", "Subscription analytics"]
             },
             "Invoicing & Tax Calculation": {
                 icon: "🧾",
-                analogy: "Think of it like an Automated Accountant",
-                description: "Generates invoices and calculates taxes automatically, like having an accountant who handles all billing paperwork.",
-                benefits: ["Automated invoicing", "Tax compliance", "Professional documentation", "Payment tracking"]
-            },
-            "Usage-Based Billing": {
-                icon: "📊",
-                analogy: "Think of it like a Utility Meter",
-                description: "Bills customers based on actual usage, like how utility companies charge based on consumption.",
-                benefits: ["Fair pricing model", "Scalable revenue", "Usage transparency", "Cost optimization"]
-            },
-            "Real-Time Billing Dashboard": {
-                icon: "📈",
-                analogy: "Think of it like a Financial Control Center",
-                description: "Provides real-time insights into billing and revenue, like having a financial dashboard for your business.",
-                benefits: ["Real-time revenue tracking", "Billing analytics", "Financial insights", "Revenue optimization"]
+                analogy: "Think of it like an Automated Accounting Office",
+                description: "Automated invoice generation and tax calculations, like having an accounting office that handles all financial paperwork automatically.",
+                benefits: ["Automated invoicing", "Tax compliance", "Financial reporting", "Reduced manual work"]
             }
         }
     },
-    "AI/ML & Advanced Workloads": {
-        description: "Artificial intelligence and machine learning services to power intelligent applications.",
+    "AI & Machine Learning": {
+        description: "Artificial intelligence and machine learning services for modern applications.",
         topics: {
             "Model Hosting": {
                 icon: "🤖",
-                analogy: "Think of it like a Brain Hosting Service",
-                description: "Hosts and serves machine learning models, like having a service that keeps your AI brains running and accessible.",
-                benefits: ["Scalable AI deployment", "Model versioning", "Performance optimization", "Easy model updates"]
+                analogy: "Think of it like a Smart Factory",
+                description: "Platforms for deploying and serving machine learning models, like having a factory that produces intelligent insights on demand.",
+                benefits: ["Scalable AI deployment", "Model versioning", "Performance optimization", "Cost-effective AI"]
             },
             "AI Inference API": {
                 icon: "🧠",
-                analogy: "Think of it like an AI Brain on Demand",
-                description: "Provides AI capabilities through simple API calls, like having access to intelligent brains whenever you need them.",
-                benefits: ["Easy AI integration", "No ML expertise required", "Scalable AI processing", "Cost-effective AI access"]
+                analogy: "Think of it like an AI-Powered Assistant",
+                description: "Ready-to-use AI services for common tasks, like having a smart assistant that can understand images, text, and speech.",
+                benefits: ["Pre-trained AI models", "Easy integration", "Cost-effective AI", "No ML expertise required"]
             },
             "Embedding + Vector Search": {
                 icon: "🔍",
-                analogy: "Think of it like Semantic Memory Search",
-                description: "Converts text to numerical representations and finds similar content, like having a search system that understands meaning.",
-                benefits: ["Semantic search capabilities", "AI-powered recommendations", "Content similarity matching", "Intelligent data organization"]
-            },
-            "ML Pipeline Hosting": {
-                icon: "⚙️",
-                analogy: "Think of it like an Automated Factory for AI",
-                description: "Manages the entire machine learning workflow from data to deployment, like having an automated factory that builds and maintains AI systems.",
-                benefits: ["End-to-end ML workflows", "Automated model training", "Data pipeline management", "Production-ready ML"]
+                analogy: "Think of it like a Smart Library System",
+                description: "AI-powered search using semantic understanding, like having a librarian who understands the meaning behind your questions.",
+                benefits: ["Semantic search capabilities", "AI-powered recommendations", "Natural language queries", "Intelligent content discovery"]
             }
         }
     },
-    "Internal Tools & No-Code/Low-Code": {
-        description: "Tools that enable non-technical users to build and manage applications without extensive coding.",
+    "Data & Analytics": {
+        description: "Data processing, analytics, and business intelligence tools.",
+        topics: {
+            "API Builders / No-Code Backends": {
+                icon: "🔧",
+                analogy: "Think of it like a Visual Programming Studio",
+                description: "Tools for creating APIs and backend services without coding, like having a visual studio where you can build software by connecting blocks.",
+                benefits: ["No-code development", "Rapid prototyping", "Business user friendly", "Reduced development time"]
+            },
+            "ETL Tools": {
+                icon: "📊",
+                analogy: "Think of it like a Data Processing Factory",
+                description: "Data extraction, transformation, and loading tools, like having a factory that processes raw materials into finished products.",
+                benefits: ["Automated data processing", "Data quality improvement", "Scalable data pipelines", "Business intelligence foundation"]
+            },
+            "Data Warehouses": {
+                icon: "🏢",
+                analogy: "Think of it like a Central Business Archive",
+                description: "Centralized data storage for analytics and business intelligence, like having a massive archive where all business information is organized and accessible.",
+                benefits: ["Centralized data storage", "Business intelligence", "Historical data analysis", "Scalable analytics"]
+            },
+            "API Documentation Tools": {
+                icon: "📚",
+                analogy: "Think of it like an Automated Technical Writer",
+                description: "Tools for creating and maintaining API documentation, like having a technical writer who automatically updates manuals as your system changes.",
+                benefits: ["Always up-to-date docs", "Developer experience", "API discoverability", "Reduced support burden"]
+            },
+            "Data Ownership / Export Tools": {
+                icon: "📤",
+                analogy: "Think of it like a Data Portability Service",
+                description: "Tools for data portability and compliance with data regulations, like having a service that helps users take their data with them.",
+                benefits: ["Regulatory compliance", "User data control", "Data portability", "Trust building"]
+            },
+            "Self-Hosting Options": {
+                icon: "🏠",
+                analogy: "Think of it like a Private Cloud Estate",
+                description: "Solutions for hosting applications on your own infrastructure, like having your own private estate instead of renting space.",
+                benefits: ["Full control", "Data sovereignty", "Customization options", "Cost optimization"]
+            }
+        }
+    },
+    "Internal Tools & No-Code": {
+        description: "Tools for building internal applications and automating business processes.",
         topics: {
             "Admin Panel Builders": {
                 icon: "⚙️",
-                analogy: "Think of it like a Control Room Builder",
-                description: "Creates administrative interfaces without coding, like having a tool that builds control rooms for managing your business.",
-                benefits: ["No coding required", "Rapid admin interface creation", "Customizable dashboards", "User-friendly management"]
+                analogy: "Think of it like a Visual Control Room Builder",
+                description: "Tools for creating internal admin interfaces without coding, like having a visual builder for creating control rooms for your business operations.",
+                benefits: ["No-code admin tools", "Rapid internal tool development", "Business user friendly", "Custom workflow creation"]
             },
             "Workflow Automation": {
                 icon: "🔄",
                 analogy: "Think of it like an Automated Assembly Line",
-                description: "Automates business processes and workflows, like having an assembly line that handles repetitive tasks automatically.",
+                description: "Tools to automate business processes and reduce manual work, like having an assembly line that handles repetitive tasks automatically.",
                 benefits: ["Process automation", "Reduced manual work", "Consistent execution", "Error reduction"]
-            },
-            "API Builders / No-Code Backends": {
-                icon: "🔧",
-                analogy: "Think of it like a Backend Factory",
-                description: "Creates APIs and backend services without traditional programming, like having a factory that builds the behind-the-scenes parts of your app.",
-                benefits: ["No backend coding", "Rapid API development", "Visual development", "Database integration"]
             }
         }
     },
     "Product Analytics & Growth": {
-        description: "Tools to understand user behavior, optimize products, and drive growth through data-driven decisions.",
+        description: "Analytics and tools for understanding user behavior and driving product growth.",
         topics: {
             "Product Analytics": {
-                icon: "📊",
-                analogy: "Think of it like a User Behavior Detective",
-                description: "Tracks and analyzes how users interact with your product, like having a detective who studies user behavior patterns.",
-                benefits: ["User behavior insights", "Data-driven decisions", "Product optimization", "User journey mapping"]
+                icon: "📈",
+                analogy: "Think of it like a Business Intelligence Dashboard",
+                description: "Data-driven insights into user behavior and product performance, like having a dashboard that shows you exactly how your business is performing.",
+                benefits: ["User behavior insights", "Data-driven decisions", "Performance tracking", "Growth optimization"]
             },
             "Heatmaps & Session Replay": {
-                icon: "🎥",
-                analogy: "Think of it like a User Experience Camera",
-                description: "Visualizes user interactions and replays user sessions, like having cameras that show exactly how users navigate your product.",
-                benefits: ["Visual user insights", "UX optimization", "Issue identification", "Conversion optimization"]
+                icon: "🎯",
+                analogy: "Think of it like a User Behavior Recording Studio",
+                description: "Visual tools to understand how users interact with your application, like having cameras that record exactly how people use your product.",
+                benefits: ["User experience insights", "Visual behavior analysis", "Conversion optimization", "Usability improvement"]
             },
             "Feature Flags": {
                 icon: "🚩",
-                analogy: "Think of it like a Feature Light Switch",
-                description: "Controls which features are visible to users, like having light switches that can turn features on and off instantly.",
-                benefits: ["Gradual feature rollouts", "A/B testing capabilities", "Risk mitigation", "Instant feature control"]
+                analogy: "Think of it like a Light Switch for Features",
+                description: "Safely deploy and test new features with the ability to turn them on and off instantly, like having light switches for different features in your app.",
+                benefits: ["Safe feature deployment", "A/B testing capability", "Instant rollback", "Gradual rollout"]
             },
             "AB Testing": {
                 icon: "🧪",
-                analogy: "Think of it like a Scientific Experiment Lab",
-                description: "Tests different versions of features to see which performs better, like running scientific experiments to optimize your product.",
-                benefits: ["Data-driven optimization", "Risk-free experimentation", "Conversion improvement", "User experience enhancement"]
+                analogy: "Think of it like a Scientific Experiment Platform",
+                description: "Statistical testing to compare different versions and optimize user experience, like running scientific experiments to find the best approach.",
+                benefits: ["Data-driven optimization", "Statistical confidence", "User experience improvement", "Conversion optimization"]
             },
             "User Feedback Tools": {
                 icon: "💬",
-                analogy: "Think of it like a Customer Suggestion Box",
-                description: "Collects and manages user feedback and suggestions, like having a digital suggestion box that helps improve your product.",
-                benefits: ["User voice collection", "Product improvement insights", "Customer satisfaction tracking", "Feature prioritization"]
+                analogy: "Think of it like a Digital Suggestion Box",
+                description: "Collect and manage user feedback, feature requests, and support tickets, like having a suggestion box that's always open and organized.",
+                benefits: ["User voice collection", "Feature prioritization", "Customer satisfaction", "Product improvement"]
             }
         }
     },
-    "Data Pipelines & Warehousing": {
-        description: "Tools for collecting, processing, storing, and analyzing large amounts of data.",
+    "Compliance & Security": {
+        description: "Security compliance and regulatory tools for enterprise applications.",
         topics: {
-            "ETL Tools": {
-                icon: "🔄",
-                analogy: "Think of it like a Data Processing Factory",
-                description: "Extracts, transforms, and loads data from various sources, like having a factory that processes raw materials into finished products.",
-                benefits: ["Automated data processing", "Data quality improvement", "Multi-source integration", "Scalable data workflows"]
+            "SOC 2 / ISO 27001 / HIPAA Compliance": {
+                icon: "🛡️",
+                analogy: "Think of it like a Security Certification Service",
+                description: "Security compliance frameworks for enterprise and healthcare applications, like having a service that ensures your business meets all security standards.",
+                benefits: ["Security compliance", "Enterprise trust", "Regulatory adherence", "Risk mitigation"]
             },
-            "Data Warehouses": {
-                icon: "🏢",
-                analogy: "Think of it like a Massive Data Storage Building",
-                description: "Centralized storage for large amounts of structured data, like having a massive building designed specifically for storing and organizing data.",
-                benefits: ["Centralized data storage", "Fast query performance", "Data consistency", "Business intelligence support"]
-            },
-            "Data Visualization Dashboards": {
-                icon: "📈",
-                analogy: "Think of it like a Data Art Gallery",
-                description: "Creates visual representations of data through charts and graphs, like having an art gallery that displays data as beautiful, understandable visuals.",
-                benefits: ["Visual data insights", "Interactive reporting", "Real-time monitoring", "Decision-making support"]
-            }
-        }
-    },
-    "Documentation, Portability & Meta": {
-        description: "Tools for documentation, data portability, and platform management features.",
-        topics: {
-            "API Documentation Tools": {
-                icon: "📚",
-                analogy: "Think of it like an API Instruction Manual",
-                description: "Creates and maintains documentation for APIs, like having an instruction manual that explains how to use your services.",
-                benefits: ["Clear API documentation", "Developer onboarding", "Reduced support requests", "API adoption improvement"]
-            },
-            "Data Ownership / Export Tools": {
-                icon: "📤",
-                analogy: "Think of it like a Data Moving Service",
-                description: "Allows users to export and own their data, like having a moving service that helps users take their data with them.",
-                benefits: ["Data portability", "User control", "Compliance support", "Trust building"]
-            },
-            "Self-Hosting Options": {
-                icon: "🏠",
-                analogy: "Think of it like a Home Installation Kit",
-                description: "Allows users to run the service on their own infrastructure, like having a kit that lets users install the service in their own home.",
-                benefits: ["Data sovereignty", "Custom deployment", "Offline operation", "Security control"]
-            },
-            "Open Source Licensing": {
-                icon: "🔓",
-                analogy: "Think of it like an Open Recipe Book",
-                description: "Provides open source code and licensing, like having a recipe book that's freely available for everyone to use and modify.",
-                benefits: ["Community collaboration", "Transparency", "Customization freedom", "Cost reduction"]
-            },
-            "Team Collaboration Features": {
-                icon: "👥",
-                analogy: "Think of it like a Digital Team Workspace",
-                description: "Enables multiple users to work together on projects, like having a digital workspace where teams can collaborate effectively.",
-                benefits: ["Team productivity", "Shared workflows", "Role-based access", "Collaborative development"]
-            },
-            "Project Transfer Support": {
-                icon: "🔄",
-                analogy: "Think of it like a Project Moving Service",
-                description: "Allows projects to be transferred between users or organizations, like having a service that helps move projects from one owner to another.",
-                benefits: ["Project portability", "Ownership transfer", "Team handoffs", "Organizational changes"]
-            },
-            "Multi-region Migration Support": {
-                icon: "🌍",
-                analogy: "Think of it like a Global Moving Service",
-                description: "Supports moving applications between different geographic regions, like having a moving service that can relocate your application worldwide.",
-                benefits: ["Geographic flexibility", "Compliance requirements", "Performance optimization", "Disaster recovery"]
+            "GDPR Compliance Tools": {
+                icon: "📋",
+                analogy: "Think of it like a Privacy Management System",
+                description: "Tools to ensure compliance with European data protection regulations, like having a system that automatically manages user privacy and data rights.",
+                benefits: ["Regulatory compliance", "User privacy protection", "Data rights management", "Legal risk reduction"]
             }
         }
     }
 };
 
-// Subcategory categorization
-const techSubcategories = [
-    "Version Control", "CI/CD Platforms", "Dev Environments (Cloud IDEs)", "Infrastructure-as-Code (IaC)", "CLI Tools", "API Access",
-    "Static Site Hosting", "Fullstack App Hosting", "Backend/Server Hosting", "Container Hosting", "Edge Function Hosting", "Serverless Functions", "Cold Start Optimized Runtimes", "Warm Instance Support", "Cron Job Hosting", "Background Worker Hosting",
-    "Database-as-a-Service (DBaaS)", "Object/File Storage", "Caching & Key-Value Stores", "Vector Databases", "GraphQL Backend Services", "Search-as-a-Service", "Authentication", "Authorization", "Realtime Pub/Sub & WebSockets",
-    "Logging & Log Management", "Metrics & Analytics", "Alerting & Uptime Monitoring", "Application Performance Monitoring (APM)", "Audit Logging", "Secrets & Environment Variable Management", "Cost Monitoring & Billing APIs",
-    "Task Queues", "Background Jobs", "Cron Scheduling", "Durable Workflows / Orchestration", "Retry Policies & Dead Letter Queues", "Triggered Jobs",
-    "CDN Services", "DNS Management", "Domain Provisioning", "Reverse Proxy / API Gateway", "Load Balancers", "Edge Caching & Smart Routing",
-    "DDoS Protection", "SSL Certificate Auto-Provisioning", "Role-Based Access Control (RBAC)", "Audit Trails",
-    "Email Delivery", "SMS / Voice / WhatsApp APIs", "Push Notifications", "Transactional Messaging", "In-App Messaging APIs",
-    "Payment APIs", "Subscription Management", "Invoicing & Tax Calculation", "Usage-Based Billing", "Real-Time Billing Dashboard",
-    "Model Hosting", "AI Inference API", "Embedding + Vector Search", "ML Pipeline Hosting",
-    "API Builders / No-Code Backends",
-    "ETL Tools", "Data Warehouses", "Data Visualization Dashboards",
-    "API Documentation Tools", "Data Ownership / Export Tools", "Self-Hosting Options", "Open Source Licensing", "Team Collaboration Features", "Project Transfer Support", "Multi-region Migration Support"
-];
-
-const nonTechSubcategories = [
-    "Admin Panel Builders", "Workflow Automation",
-    "Product Analytics", "Heatmaps & Session Replay", "Feature Flags", "AB Testing", "User Feedback Tools",
-    "SOC 2 / ISO 27001 / HIPAA Compliance", "GDPR Compliance Tools"
-];
-
-// Selected subcategories
+// Global variables for content page
 let selectedTechSubcategories = new Set();
 let selectedNonTechSubcategories = new Set();
-
-// Progress tracking
 let completedTopics = new Set();
 let totalTopics = 0;
 
@@ -598,16 +484,13 @@ let totalTopics = 0;
 document.addEventListener('DOMContentLoaded', function() {
     loadProgressFromStorage();
     loadSubcategorySelections();
-    // Always re-initialize progress and update display after loading selections
-    initializeProgress();
-    updateProgressDisplay();
     
     // Check if user has selected subcategories
-    if (selectedTechSubcategories.size === 5 && selectedNonTechSubcategories.size === 5) {
+    if (selectedTechSubcategories.size === 8 && selectedNonTechSubcategories.size === 2) {
         // Complete selections - show full content
+        initializeProgress();
+        updateProgressDisplay();
         initializeNavigation();
-        initializeSearch();
-        updateAllCategoryProgress();
         loadWelcomeContent();
     } else {
         // Incomplete or no selections - redirect to selection page
@@ -623,7 +506,7 @@ function setupResetButton() {
     const resetButton = document.getElementById('resetFromContent');
     if (resetButton) {
         resetButton.addEventListener('click', function() {
-            // Only remove selection and progress keys
+            // Clear all stored data
             localStorage.removeItem('selectedTechSubcategories');
             localStorage.removeItem('selectedNonTechSubcategories');
             localStorage.removeItem('user_id');
@@ -632,13 +515,6 @@ function setupResetButton() {
             window.location.href = 'selection.html';
         });
     }
-}
-
-// Initialize subcategory selection
-function initializeSubcategorySelection() {
-    populateSubcategoryGrids();
-    updateSelectionCounters();
-    setupSubcategoryEventListeners();
 }
 
 // Load subcategory selections from localStorage
@@ -652,244 +528,8 @@ function loadSubcategorySelections() {
     if (savedNonTech) {
         selectedNonTechSubcategories = new Set(JSON.parse(savedNonTech));
     }
-}
+    
 
-// Save subcategory selections to localStorage
-function saveSubcategorySelections() {
-    localStorage.setItem('selectedTechSubcategories', JSON.stringify([...selectedTechSubcategories]));
-    localStorage.setItem('selectedNonTechSubcategories', JSON.stringify([...selectedNonTechSubcategories]));
-}
-
-// Populate the subcategory grids
-function populateSubcategoryGrids() {
-    const techGrid = document.getElementById('techSubcategories');
-    const nonTechGrid = document.getElementById('nonTechSubcategories');
-    
-    // Populate tech subcategories
-    techSubcategories.forEach(subcategory => {
-        const item = createSubcategoryItem(subcategory, 'tech');
-        techGrid.appendChild(item);
-    });
-    
-    // Populate non-tech subcategories
-    nonTechSubcategories.forEach(subcategory => {
-        const item = createSubcategoryItem(subcategory, 'non-tech');
-        nonTechGrid.appendChild(item);
-    });
-}
-
-// Create a subcategory item element
-function createSubcategoryItem(subcategoryName, type) {
-    const item = document.createElement('div');
-    item.className = 'subcategory-item';
-    item.dataset.subcategory = subcategoryName;
-    item.dataset.type = type;
-    
-    // Find the subcategory data for icon only
-    let subcategoryData = null;
-    for (const category in infrastructureData) {
-        if (infrastructureData[category].topics[subcategoryName]) {
-            subcategoryData = infrastructureData[category].topics[subcategoryName];
-            break;
-        }
-    }
-    
-    const icon = subcategoryData ? subcategoryData.icon : '📋';
-    
-    item.innerHTML = `
-        <h4>${icon} ${subcategoryName}</h4>
-    `;
-    
-    // Mark as selected if already selected
-    if ((type === 'tech' && selectedTechSubcategories.has(subcategoryName)) ||
-        (type === 'non-tech' && selectedNonTechSubcategories.has(subcategoryName))) {
-        item.classList.add('selected');
-    }
-    
-    return item;
-}
-
-// Setup event listeners for subcategory selection
-function setupSubcategoryEventListeners() {
-    // Subcategory item clicks
-    document.addEventListener('click', function(e) {
-        if (e.target.closest('.subcategory-item')) {
-            const item = e.target.closest('.subcategory-item');
-            const subcategoryName = item.dataset.subcategory;
-            const type = item.dataset.type;
-            
-            toggleSubcategorySelection(subcategoryName, type, item);
-        }
-    });
-    
-    // Start learning button
-    document.getElementById('startLearning').addEventListener('click', function() {
-        if (selectedTechSubcategories.size === 5 && selectedNonTechSubcategories.size === 5) {
-            hideSubcategorySelection();
-            showMainContent();
-        }
-    });
-    
-    // Reset selection button
-    document.getElementById('resetSelection').addEventListener('click', function() {
-        resetSubcategorySelection();
-    });
-    
-    // Reset from content button
-    const resetFromContentBtn = document.getElementById('resetFromContent');
-    if (resetFromContentBtn) {
-        resetFromContentBtn.addEventListener('click', function() {
-            returnToSubcategorySelection();
-        });
-    }
-}
-
-// Toggle subcategory selection
-function toggleSubcategorySelection(subcategoryName, type, item) {
-    const maxSelections = 5;
-    
-    if (type === 'tech') {
-        if (selectedTechSubcategories.has(subcategoryName)) {
-            selectedTechSubcategories.delete(subcategoryName);
-            item.classList.remove('selected');
-        } else if (selectedTechSubcategories.size < maxSelections) {
-            selectedTechSubcategories.add(subcategoryName);
-            item.classList.add('selected');
-        }
-    } else {
-        if (selectedNonTechSubcategories.has(subcategoryName)) {
-            selectedNonTechSubcategories.delete(subcategoryName);
-            item.classList.remove('selected');
-        } else if (selectedNonTechSubcategories.size < maxSelections) {
-            selectedNonTechSubcategories.add(subcategoryName);
-            item.classList.add('selected');
-        }
-    }
-    
-    updateSelectionCounters();
-    saveSubcategorySelections();
-    updateStartButton();
-}
-
-// Update selection counters
-function updateSelectionCounters() {
-    document.getElementById('techSelected').textContent = selectedTechSubcategories.size;
-    document.getElementById('nonTechSelected').textContent = selectedNonTechSubcategories.size;
-    
-    // Add visual feedback for max selections
-    const techGrid = document.getElementById('techSubcategories');
-    const nonTechGrid = document.getElementById('nonTechSubcategories');
-    
-    if (selectedTechSubcategories.size >= 5) {
-        techGrid.classList.add('max-selected');
-    } else {
-        techGrid.classList.remove('max-selected');
-    }
-    
-    if (selectedNonTechSubcategories.size >= 5) {
-        nonTechGrid.classList.add('max-selected');
-    } else {
-        nonTechGrid.classList.remove('max-selected');
-    }
-}
-
-// Update start button state
-function updateStartButton() {
-    const startButton = document.getElementById('startLearning');
-    const isComplete = selectedTechSubcategories.size === 5 && selectedNonTechSubcategories.size === 5;
-    startButton.disabled = !isComplete;
-}
-
-// Reset subcategory selection
-function resetSubcategorySelection() {
-    // Add visual feedback
-    const resetButton = document.getElementById('resetSelection');
-    const originalText = resetButton.textContent;
-    resetButton.textContent = 'Resetting...';
-    resetButton.disabled = true;
-    
-    // Clear selections
-    selectedTechSubcategories.clear();
-    selectedNonTechSubcategories.clear();
-    
-    // Remove selected class from all items
-    document.querySelectorAll('.subcategory-item').forEach(item => {
-        item.classList.remove('selected');
-    });
-    
-    updateSelectionCounters();
-    updateStartButton();
-    saveSubcategorySelections();
-    
-    // Restore button after a short delay
-    setTimeout(() => {
-        resetButton.textContent = originalText;
-        resetButton.disabled = false;
-    }, 500);
-}
-
-// Hide subcategory selection and show main content
-function hideSubcategorySelection() {
-    const selectionDiv = document.getElementById('subcategorySelection');
-    selectionDiv.style.display = 'none';
-}
-
-// Return to subcategory selection from content page
-function returnToSubcategorySelection() {
-    // Clear all selections
-    selectedTechSubcategories.clear();
-    selectedNonTechSubcategories.clear();
-    
-    // Remove selected class from all items
-    document.querySelectorAll('.subcategory-item').forEach(item => {
-        item.classList.remove('selected');
-    });
-    
-    // Update UI
-    updateSelectionCounters();
-    updateStartButton();
-    saveSubcategorySelections();
-    
-    // Show subcategory selection
-    const selectionDiv = document.getElementById('subcategorySelection');
-    selectionDiv.style.display = 'block';
-    
-    // Hide main content sections
-    const progressSection = document.querySelector('.progress-section');
-    const searchContainer = document.querySelector('.search-container');
-    const navigation = document.getElementById('navigation');
-    const contentArea = document.querySelector('.content-area');
-    
-    if (progressSection) progressSection.style.display = 'none';
-    if (searchContainer) searchContainer.style.display = 'none';
-    if (navigation) navigation.style.display = 'none';
-    if (contentArea) contentArea.style.display = 'none';
-    
-    // Scroll to top
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-}
-
-// Show main content
-function showMainContent() {
-    // Reinitialize navigation and search with selected subcategories
-    initializeNavigation();
-    initializeSearch();
-    updateAllCategoryProgress();
-    loadWelcomeContent();
-    
-    // Show all main content sections
-    const progressSection = document.querySelector('.progress-section');
-    const searchContainer = document.querySelector('.search-container');
-    const navigation = document.getElementById('navigation');
-    const contentArea = document.querySelector('.content-area');
-    
-    if (progressSection) progressSection.style.display = 'block';
-    if (searchContainer) searchContainer.style.display = 'block';
-    if (navigation) navigation.style.display = 'grid';
-    if (contentArea) contentArea.style.display = 'block';
 }
 
 // Initialize progress tracking
@@ -899,7 +539,10 @@ function initializeProgress() {
     totalTopics = allSelectedSubcategories.size;
     
     // Update total topics display
-    document.querySelector('.total-topics').textContent = `of ${totalTopics} total topics`;
+    const totalTopicsElement = document.querySelector('.total-topics');
+    if (totalTopicsElement) {
+        totalTopicsElement.textContent = `of ${totalTopics} total topics`;
+    }
 }
 
 // Load progress from localStorage
@@ -918,19 +561,28 @@ function saveProgressToStorage() {
 // Update progress display
 function updateProgressDisplay() {
     const completedCount = completedTopics.size;
-    const percentage = Math.round((completedCount / totalTopics) * 100);
+    const percentage = totalTopics > 0 ? Math.round((completedCount / totalTopics) * 100) : 0;
     
     // Update progress bar
     const progressFill = document.getElementById('progressFill');
-    progressFill.style.width = `${percentage}%`;
+    if (progressFill) {
+        progressFill.style.width = `${percentage}%`;
+    }
     
     // Update text
-    document.querySelector('.progress-text').textContent = `${percentage}% Complete`;
-    document.querySelector('.completed-topics').textContent = `${completedCount} topics completed`;
+    const progressText = document.querySelector('.progress-text');
+    const completedTopicsText = document.querySelector('.completed-topics');
+    
+    if (progressText) {
+        progressText.textContent = `${percentage}% Complete`;
+    }
+    if (completedTopicsText) {
+        completedTopicsText.textContent = `${completedCount} topics completed`;
+    }
 }
 
 // Mark topic as done/undone
-function toggleTopicCompletion(categoryName, topicName) {
+function toggleTopicCompletion(categoryName, topicName, event) {
     const topicKey = `${categoryName}|${topicName}`;
     
     if (completedTopics.has(topicKey)) {
@@ -941,7 +593,6 @@ function toggleTopicCompletion(categoryName, topicName) {
     
     saveProgressToStorage();
     updateProgressDisplay();
-    updateCategoryProgress(categoryName);
     
     // Update the button and card appearance
     const button = event.target;
@@ -967,13 +618,15 @@ function isTopicCompleted(categoryName, topicName) {
 // Initialize navigation
 function initializeNavigation() {
     const navigation = document.getElementById('navigation');
-    const content = document.getElementById('content');
+    if (!navigation) return;
     
     // Clear existing navigation
     navigation.innerHTML = '';
     
     // Get all selected subcategories
     const allSelectedSubcategories = new Set([...selectedTechSubcategories, ...selectedNonTechSubcategories]);
+    
+
     
     // Create navigation cards for each selected subcategory
     let topicIndex = 1;
@@ -994,26 +647,46 @@ function initializeNavigation() {
             navCard.className = 'nav-card';
             navCard.setAttribute('data-category', topicCategory);
             navCard.setAttribute('data-topic', topicName);
+            
             navCard.innerHTML = `
-                <h3>
-                    <span class="count">${topicIndex}</span>
+                <div class="nav-item">
                     <span class="topic-icon">${topicData.icon}</span>
-                    ${topicName}
-                </h3>
-                <p>${topicData.analogy}</p>
+                    <span class="topic-name">${topicName}</span>
+                </div>
             `;
             
             navCard.addEventListener('click', () => {
-                // Update dropdown to match the clicked category
-                const searchDropdown = document.getElementById('searchDropdown');
-                searchDropdown.value = topicCategory;
-                
                 // Remove active class from all cards
                 document.querySelectorAll('.nav-card').forEach(card => card.classList.remove('active'));
                 // Add active class to clicked card
                 navCard.classList.add('active');
-                // Load content
-                loadCategoryContent(topicCategory);
+                // Load content for the specific topic
+                loadTopicContent(topicCategory, topicName);
+            });
+            
+            navigation.appendChild(navCard);
+            topicIndex++;
+        } else {
+            // Fallback: Create navigation card even if topic data is not found
+            const navCard = document.createElement('div');
+            navCard.className = 'nav-card';
+            navCard.setAttribute('data-category', 'Unknown');
+            navCard.setAttribute('data-topic', topicName);
+            
+            navCard.innerHTML = `
+                <div class="nav-item">
+                    <span class="topic-icon">📋</span>
+                    <span class="topic-name">${topicName}</span>
+                </div>
+            `;
+            
+            navCard.addEventListener('click', () => {
+                // Remove active class from all cards
+                document.querySelectorAll('.nav-card').forEach(card => card.classList.remove('active'));
+                // Add active class to clicked card
+                navCard.classList.add('active');
+                // Load welcome content as fallback
+                loadWelcomeContent();
             });
             
             navigation.appendChild(navCard);
@@ -1033,139 +706,83 @@ function scrollToTop() {
 // Scroll to content function
 function scrollToContent() {
     const contentArea = document.querySelector('.content-area');
-    contentArea.scrollIntoView({ 
-        behavior: 'smooth', 
-        block: 'start' 
-    });
+    if (contentArea) {
+        contentArea.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+        });
+    }
 }
 
-// Load category content
-function loadCategoryContent(category) {
+// Load specific topic content
+function loadTopicContent(category, topicName) {
     const content = document.getElementById('content');
+    if (!content) return;
+    
     const categoryData = infrastructureData[category];
+    if (!categoryData) return;
     
-    // Get all selected subcategories
-    const allSelectedSubcategories = new Set([...selectedTechSubcategories, ...selectedNonTechSubcategories]);
+    const topic = categoryData.topics[topicName];
+    if (!topic) return;
     
-    let topicsHTML = '';
-    Object.keys(categoryData.topics).forEach(topicName => {
-        // Only show topics that are in the selected subcategories
-        if (allSelectedSubcategories.has(topicName)) {
-            const topic = categoryData.topics[topicName];
-            const isCompleted = isTopicCompleted(category, topicName);
-            const completedClass = isCompleted ? 'completed' : '';
-            const buttonText = isCompleted ? 'Completed ✓' : 'Mark as Done';
-            const buttonClass = isCompleted ? 'mark-done-btn completed' : 'mark-done-btn';
-            
-            topicsHTML += `
-                <div class="topic-card ${completedClass}">
-                    <h3>
-                        <span class="topic-icon">${topic.icon}</span>
-                        ${topicName}
-                    </h3>
-                    <div class="analogy-box">
-                        <h4>${topic.analogy}</h4>
-                        <p>${topic.description}</p>
-                    </div>
-                    <div class="benefits-list">
-                        ${topic.benefits.map(benefit => `
-                            <div class="benefit-item">
-                                <span class="benefit-icon">✓</span>
-                                ${benefit}
-                            </div>
-                        `).join('')}
-                    </div>
-                    <button class="${buttonClass}" onclick="toggleTopicCompletion('${category}', '${topicName}')">
-                        ${buttonText}
-                    </button>
-                </div>
-            `;
-        }
-    });
+    const isCompleted = isTopicCompleted(category, topicName);
+    const completedClass = isCompleted ? 'completed' : '';
+    const buttonText = isCompleted ? 'Completed ✓' : 'Mark as Done';
+    const buttonClass = isCompleted ? 'mark-done-btn completed' : 'mark-done-btn';
     
     content.innerHTML = `
-        <div class="module-title">${category}</div>
+        <div class="module-title">${topicName}</div>
         <div class="module-intro">
             <p>${categoryData.description}</p>
         </div>
         <div class="topics-grid">
-            ${topicsHTML}
+            <div class="topic-card ${completedClass}">
+                <h3>
+                    <span class="topic-icon">${topic.icon}</span>
+                    ${topicName}
+                </h3>
+                <div class="analogy-box">
+                    <h4>${topic.analogy}</h4>
+                    <p>${topic.description}</p>
+                </div>
+                <div class="benefits-list">
+                    ${topic.benefits.map(benefit => `
+                        <div class="benefit-item">
+                            <span class="benefit-icon">✓</span>
+                            ${benefit}
+                        </div>
+                    `).join('')}
+                </div>
+                <button class="${buttonClass}" onclick="toggleTopicCompletion('${category}', '${topicName}', event)">
+                    ${buttonText}
+                </button>
+            </div>
         </div>
     `;
     
     // Smooth scroll to content area with a slight delay to ensure content is loaded
     setTimeout(() => {
         const contentArea = document.querySelector('.content-area');
-        contentArea.scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'start' 
-        });
+        if (contentArea) {
+            contentArea.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
+        }
     }, 100);
 }
 
-// Generate all topic options for dropdown
-function generateTopicOptions() {
-    let options = '<option value="all">All Categories</option>';
-    
-    // Get all selected subcategories
-    const allSelectedSubcategories = new Set([...selectedTechSubcategories, ...selectedNonTechSubcategories]);
-    
-    // Add category options only for categories that contain selected subcategories
-    Object.keys(infrastructureData).forEach(category => {
-        const categoryTopics = Object.keys(infrastructureData[category].topics);
-        const hasSelectedTopics = categoryTopics.some(topic => allSelectedSubcategories.has(topic));
-        
-        if (hasSelectedTopics) {
-            options += `<option value="${category}">📁 ${category}</option>`;
-        }
-    });
-    
-    return options;
-}
 
-// Initialize search functionality
-function initializeSearch() {
-    const searchDropdown = document.getElementById('searchDropdown');
-    
-    // Populate dropdown with all options
-    searchDropdown.innerHTML = generateTopicOptions();
-    
-    function performSearch() {
-        const selectedOption = searchDropdown.value;
-        
-        if (selectedOption === 'all') {
-            // Show all navigation cards if "All Categories" is selected
-            document.querySelectorAll('.nav-card').forEach(card => {
-                card.style.display = 'block';
-                card.classList.remove('active');
-            });
-            // Load welcome content
-            loadWelcomeContent();
-            return;
-        }
-        
-        // Show only the navigation cards that belong to the selected category
-        document.querySelectorAll('.nav-card').forEach(card => {
-            const cardCategory = card.getAttribute('data-category');
-            if (cardCategory === selectedOption) {
-                card.style.display = 'block';
-                card.classList.add('active');
-            } else {
-                card.style.display = 'none';
-                card.classList.remove('active');
-            }
-        });
-        
-        // Load the content for the selected category
-        loadCategoryContent(selectedOption);
-    }
-    
-    searchDropdown.addEventListener('change', performSearch);
-}
+
+
+
+
 
 // Load welcome content
 function loadWelcomeContent() {
     const content = document.getElementById('content');
+    if (!content) return;
+    
     content.innerHTML = `
         <div class="welcome-header">
             <div class="welcome-icon">🚀</div>
@@ -1192,50 +809,4 @@ function loadWelcomeContent() {
     `;
 }
 
-// Calculate category progress
-function calculateCategoryProgress(categoryName) {
-    const categoryData = infrastructureData[categoryName];
-    const allSelectedSubcategories = new Set([...selectedTechSubcategories, ...selectedNonTechSubcategories]);
-    
-    // Only count selected topics
-    const selectedTopics = Object.keys(categoryData.topics).filter(topic => allSelectedSubcategories.has(topic));
-    const totalTopics = selectedTopics.length;
-    let completedCount = 0;
-    
-    selectedTopics.forEach(topicName => {
-        if (isTopicCompleted(categoryName, topicName)) {
-            completedCount++;
-        }
-    });
-    
-    return {
-        completed: completedCount,
-        total: totalTopics,
-        percentage: totalTopics > 0 ? Math.round((completedCount / totalTopics) * 100) : 0
-    };
-}
-
-// Update category progress display
-function updateCategoryProgress(categoryName) {
-    const progress = calculateCategoryProgress(categoryName);
-    const navCard = document.querySelector(`[data-category="${categoryName}"]`);
-    
-    if (navCard) {
-        const progressFill = navCard.querySelector('.category-progress-fill');
-        const progressText = navCard.querySelector('.category-progress-text');
-        const completedTopics = navCard.querySelector('.category-completed-topics');
-        const totalTopics = navCard.querySelector('.category-total-topics');
-        
-        if (progressFill) progressFill.style.width = `${progress.percentage}%`;
-        if (progressText) progressText.textContent = `${progress.percentage}%`;
-        if (completedTopics) completedTopics.textContent = `${progress.completed} topics`;
-        if (totalTopics) totalTopics.textContent = `of ${progress.total} total`;
-    }
-}
-
-// Update all category progress displays
-function updateAllCategoryProgress() {
-    Object.keys(infrastructureData).forEach(categoryName => {
-        updateCategoryProgress(categoryName);
-    });
-} 
+ 

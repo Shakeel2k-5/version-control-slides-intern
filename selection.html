@@ -14,26 +14,31 @@
 
         <div class="subcategory-selection" id="subcategorySelection">
             <h2>Select Your Topics</h2>
-            <p>Choose 5 technical and 5 non-technical subcategories</p>
+            <p>Choose 8 technical and 2 non-technical subcategories</p>
+            
+            <div class="name-input-section">
+                <label for="internName">Your Name:</label>
+                <input type="text" id="internName" placeholder="Enter your full name" required>
+            </div>
             
             <div class="selection-container">
                 <div class="tech-section">
-                    <h3>Technical Subcategories (Select 5)</h3>
+                    <h3>Technical Subcategories (Select 8)</h3>
                     <div class="subcategory-grid" id="techSubcategories">
                         <!-- Tech subcategories will be populated by JavaScript -->
                     </div>
                     <div class="selection-counter">
-                        <span id="techSelected">0</span> of 5 selected
+                        <span id="techSelected">0</span> of 8 selected
                     </div>
                 </div>
                 
                 <div class="non-tech-section">
-                    <h3>Non-Technical Subcategories (Select 5)</h3>
+                    <h3>Non-Technical Subcategories (Select 2)</h3>
                     <div class="subcategory-grid" id="nonTechSubcategories">
                         <!-- Non-tech subcategories will be populated by JavaScript -->
                     </div>
                     <div class="selection-counter">
-                        <span id="nonTechSelected">0</span> of 5 selected
+                        <span id="nonTechSelected">0</span> of 2 selected
                     </div>
                 </div>
             </div>
