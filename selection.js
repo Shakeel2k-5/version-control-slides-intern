@@ -14,8 +14,168 @@ const infrastructureData = {
             "CLI Tools": { icon: "⌨️" },
             "API Access": { icon: "🔌" }
         }
+    },
+    "Build, Deployment, & Runtime Hosting": {
+        topics: {
+            "Static Site Hosting": { icon: "📄" },
+            "Fullstack App Hosting": { icon: "🏢" },
+            "Backend/Server Hosting": { icon: "🖥️" },
+            "Container Hosting": { icon: "📦" },
+            "Edge Function Hosting": { icon: "🌐" },
+            "Serverless Functions": { icon: "⚡" }
+        }
+    },
+    "Data & Backend Services": {
+        topics: {
+            "Database-as-a-Service (DBaaS)": { icon: "🗄️" },
+            "Object/File Storage": { icon: "📁" },
+            "Caching & Key-Value Stores": { icon: "⚡" },
+            "Vector Databases": { icon: "🧠" },
+            "GraphQL Backend Services": { icon: "🔗" }
+        }
+    },
+    "Monitoring, Observability & DevOps": {
+        topics: {
+            "Logging & Log Management": { icon: "📋" },
+            "Metrics & Analytics": { icon: "📊" },
+            "Alerting & Uptime Monitoring": { icon: "🚨" },
+            "Application Performance Monitoring (APM)": { icon: "🎯" }
+        }
+    },
+    "Background Jobs & Workflows": {
+        topics: {
+            "Task Queues": { icon: "📋" },
+            "Background Jobs": { icon: "🎭" },
+            "Cron Scheduling": { icon: "⏰" },
+            "Durable Workflows / Orchestration": { icon: "🔄" }
+        }
+    },
+    "Networking & Security": {
+        topics: {
+            "CDN Services": { icon: "🌐" },
+            "DNS Management": { icon: "🔗" },
+            "Domain Provisioning": { icon: "🌍" },
+            "Reverse Proxy / API Gateway": { icon: "🚪" },
+            "DDoS Protection": { icon: "🛡️" },
+            "SSL Certificate Auto-Provisioning": { icon: "🔒" },
+            "Role-Based Access Control (RBAC)": { icon: "👤" }
+        }
+    },
+    "Communication & Notifications": {
+        topics: {
+            "Email Delivery": { icon: "📧" },
+            "SMS / Voice / WhatsApp APIs": { icon: "📱" },
+            "Push Notifications": { icon: "🔔" }
+        }
+    },
+    "Payments & Billing": {
+        topics: {
+            "Payment APIs": { icon: "💳" },
+            "Subscription Management": { icon: "📅" },
+            "Invoicing & Tax Calculation": { icon: "🧾" }
+        }
+    },
+    "AI & Machine Learning": {
+        topics: {
+            "Model Hosting": { icon: "🤖" },
+            "AI Inference API": { icon: "🧠" },
+            "Embedding + Vector Search": { icon: "🔍" }
+        }
+    },
+    "Data & Analytics": {
+        topics: {
+            "API Builders / No-Code Backends": { icon: "🔧" },
+            "ETL Tools": { icon: "📊" },
+            "Data Warehouses": { icon: "🏢" },
+            "API Documentation Tools": { icon: "📚" },
+            "Data Ownership / Export Tools": { icon: "📤" },
+            "Self-Hosting Options": { icon: "🏠" }
+        }
+    },
+    "Internal Tools & No-Code": {
+        topics: {
+            "Admin Panel Builders": { icon: "⚙️" },
+            "Workflow Automation": { icon: "🔄" }
+        }
+    },
+    "Product Analytics & Growth": {
+        topics: {
+            "Product Analytics": { icon: "📈" },
+            "Heatmaps & Session Replay": { icon: "🎯" },
+            "Feature Flags": { icon: "🚩" },
+            "AB Testing": { icon: "🧪" },
+            "User Feedback Tools": { icon: "💬" }
+        }
+    },
+    "Compliance & Security": {
+        topics: {
+            "SOC 2 / ISO 27001 / HIPAA Compliance": { icon: "🛡️" },
+            "GDPR Compliance Tools": { icon: "📋" }
+        }
     }
-    // ... other categories would be added here
+};
+
+// Subcategory descriptions
+const subcategoryDescriptions = {
+    // Technical subcategories
+    "Version Control": "Manage code changes, track history, and collaborate with team members using Git-based systems.",
+    "CI/CD Platforms": "Automate building, testing, and deploying applications with continuous integration and delivery pipelines.",
+    "Dev Environments (Cloud IDEs)": "Cloud-based development environments that eliminate local setup and enable instant collaboration.",
+    "Infrastructure-as-Code (IaC)": "Define and manage infrastructure using code instead of manual configuration processes.",
+    "CLI Tools": "Command-line interface tools for developers to interact with services and automate workflows.",
+    "API Access": "Programmatic interfaces to access and integrate with various services and platforms.",
+    "Static Site Hosting": "Fast, secure hosting for static websites with global CDN distribution.",
+    "Fullstack App Hosting": "Complete hosting solutions for full-stack applications with database and backend services.",
+    "Backend/Server Hosting": "Dedicated hosting for backend services, APIs, and server applications.",
+    "Container Hosting": "Platforms for deploying and managing containerized applications using Docker and Kubernetes.",
+    "Edge Function Hosting": "Serverless functions that run at the edge for improved performance and reduced latency.",
+    "Serverless Functions": "Event-driven, scalable functions that run without managing servers or infrastructure.",
+    "Database-as-a-Service (DBaaS)": "Managed database services with automated backups, scaling, and maintenance.",
+    "Object/File Storage": "Scalable cloud storage for files, images, videos, and other digital assets.",
+    "Caching & Key-Value Stores": "High-performance data storage for caching frequently accessed information.",
+    "Vector Databases": "Specialized databases for storing and querying vector embeddings used in AI applications.",
+    "GraphQL Backend Services": "Flexible API layer that allows clients to request exactly the data they need.",
+    "Logging & Log Management": "Centralized collection, storage, and analysis of application and system logs.",
+    "Metrics & Analytics": "Monitoring and analyzing application performance, user behavior, and business metrics.",
+    "Alerting & Uptime Monitoring": "Real-time monitoring and notifications for system health and availability.",
+    "Application Performance Monitoring (APM)": "Tools to monitor and optimize application performance and user experience.",
+    "Task Queues": "Asynchronous processing systems for handling background tasks and job queues.",
+    "Background Jobs": "Scheduled and on-demand background processing for time-consuming operations.",
+    "Cron Scheduling": "Automated task scheduling for recurring jobs and maintenance operations.",
+    "Durable Workflows / Orchestration": "Reliable workflow management for complex, multi-step business processes.",
+    "CDN Services": "Content delivery networks for fast, global distribution of static assets.",
+    "DNS Management": "Domain name system management for routing traffic to your applications.",
+    "Domain Provisioning": "Automated domain registration, configuration, and management services.",
+    "Reverse Proxy / API Gateway": "Traffic management and routing for microservices and API endpoints.",
+    "DDoS Protection": "Protection against distributed denial-of-service attacks and malicious traffic.",
+    "SSL Certificate Auto-Provisioning": "Automatic SSL/TLS certificate management for secure HTTPS connections.",
+    "Role-Based Access Control (RBAC)": "Granular permission systems for managing user access and security.",
+    "Email Delivery": "Reliable email sending services with delivery tracking and analytics.",
+    "SMS / Voice / WhatsApp APIs": "Communication APIs for sending SMS, voice calls, and WhatsApp messages.",
+    "Push Notifications": "Real-time notification delivery to mobile and web applications.",
+    "Payment APIs": "Secure payment processing and transaction management for e-commerce applications.",
+    "Subscription Management": "Tools for managing recurring billing, subscriptions, and customer lifecycle.",
+    "Invoicing & Tax Calculation": "Automated invoice generation and tax calculation for business transactions.",
+    "Model Hosting": "Platforms for deploying and serving machine learning models in production.",
+    "AI Inference API": "Ready-to-use AI services for common tasks like image recognition and text processing.",
+    "Embedding + Vector Search": "AI-powered search capabilities using semantic understanding and vector similarity.",
+    "API Builders / No-Code Backends": "Visual tools for creating APIs and backend services without coding.",
+    "ETL Tools": "Data extraction, transformation, and loading tools for data pipeline management.",
+    "Data Warehouses": "Centralized data storage and analytics platforms for business intelligence.",
+    "API Documentation Tools": "Tools for creating, maintaining, and sharing API documentation.",
+    "Data Ownership / Export Tools": "Tools for data portability, export, and compliance with data regulations.",
+    "Self-Hosting Options": "Solutions for hosting applications on your own infrastructure with full control.",
+    
+    // Non-technical subcategories
+    "Admin Panel Builders": "Visual tools for creating internal admin interfaces and dashboards without coding.",
+    "Workflow Automation": "Tools to automate business processes and reduce manual repetitive tasks.",
+    "Product Analytics": "Data-driven insights into user behavior, feature usage, and product performance.",
+    "Heatmaps & Session Replay": "Visual tools to understand how users interact with your application.",
+    "Feature Flags": "Safely deploy and test new features with the ability to rollback instantly.",
+    "AB Testing": "Statistical testing to compare different versions and optimize user experience.",
+    "User Feedback Tools": "Collect and manage user feedback, feature requests, and support tickets.",
+    "SOC 2 / ISO 27001 / HIPAA Compliance": "Security compliance frameworks for enterprise and healthcare applications.",
+    "GDPR Compliance Tools": "Tools to ensure compliance with European data protection regulations."
 };
 
 // Subcategory categorization
@@ -109,10 +269,19 @@ function createSubcategoryItem(subcategoryName, type) {
     item.dataset.subcategory = subcategoryName;
     item.dataset.type = type;
     
-    const icon = '📋'; // Default icon
+    const description = subcategoryDescriptions[subcategoryName] || 'No description available.';
+    
+    // Find the icon for this subcategory
+    let icon = '📋'; // Default icon
+    Object.keys(infrastructureData).forEach(category => {
+        if (infrastructureData[category].topics[subcategoryName]) {
+            icon = infrastructureData[category].topics[subcategoryName].icon;
+        }
+    });
     
     item.innerHTML = `
-        <h4>${icon} ${subcategoryName}</h4>
+        <h4><span class="subcategory-icon">${icon}</span> ${subcategoryName}</h4>
+        <p class="subcategory-description">${description}</p>
     `;
     
     // Mark as selected if already selected

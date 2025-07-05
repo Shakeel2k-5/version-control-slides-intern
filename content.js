@@ -975,52 +975,49 @@ function initializeNavigation() {
     // Get all selected subcategories
     const allSelectedSubcategories = new Set([...selectedTechSubcategories, ...selectedNonTechSubcategories]);
     
-    // Create navigation cards only for categories that contain selected subcategories
-    let categoryIndex = 1;
-    Object.keys(infrastructureData).forEach((category) => {
-        const categoryTopics = Object.keys(infrastructureData[category].topics);
-        const hasSelectedTopics = categoryTopics.some(topic => allSelectedSubcategories.has(topic));
+    // Create navigation cards for each selected subcategory
+    let topicIndex = 1;
+    allSelectedSubcategories.forEach(topicName => {
+        // Find which category this topic belongs to
+        let topicCategory = null;
+        let topicData = null;
         
-        if (hasSelectedTopics) {
-            const progress = calculateCategoryProgress(category);
+        Object.keys(infrastructureData).forEach((category) => {
+            if (infrastructureData[category].topics[topicName]) {
+                topicCategory = category;
+                topicData = infrastructureData[category].topics[topicName];
+            }
+        });
+        
+        if (topicData) {
             const navCard = document.createElement('div');
             navCard.className = 'nav-card';
-            navCard.setAttribute('data-category', category);
+            navCard.setAttribute('data-category', topicCategory);
+            navCard.setAttribute('data-topic', topicName);
             navCard.innerHTML = `
                 <h3>
-                    <span class="count">${categoryIndex}</span>
-                    ${category}
+                    <span class="count">${topicIndex}</span>
+                    <span class="topic-icon">${topicData.icon}</span>
+                    ${topicName}
                 </h3>
-                <p>${infrastructureData[category].description}</p>
-                <div class="category-progress">
-                    <div class="category-progress-header">
-                        <span class="category-progress-text">${progress.percentage}%</span>
-                    </div>
-                    <div class="category-progress-bar">
-                        <div class="category-progress-fill" style="width: ${progress.percentage}%"></div>
-                    </div>
-                    <div class="category-progress-stats">
-                        <span class="category-completed-topics">${progress.completed} topics</span>
-                        <span class="category-total-topics">of ${progress.total} total</span>
-                    </div>
-                </div>
+                <p>${topicData.analogy}</p>
             `;
             
             navCard.addEventListener('click', () => {
                 // Update dropdown to match the clicked category
                 const searchDropdown = document.getElementById('searchDropdown');
-                searchDropdown.value = category;
+                searchDropdown.value = topicCategory;
                 
                 // Remove active class from all cards
                 document.querySelectorAll('.nav-card').forEach(card => card.classList.remove('active'));
                 // Add active class to clicked card
                 navCard.classList.add('active');
                 // Load content
-                loadCategoryContent(category);
+                loadCategoryContent(topicCategory);
             });
             
             navigation.appendChild(navCard);
-            categoryIndex++;
+            topicIndex++;
         }
     });
 }
@@ -1137,7 +1134,7 @@ function initializeSearch() {
         const selectedOption = searchDropdown.value;
         
         if (selectedOption === 'all') {
-            // Show all categories if "All Categories" is selected
+            // Show all navigation cards if "All Categories" is selected
             document.querySelectorAll('.nav-card').forEach(card => {
                 card.style.display = 'block';
                 card.classList.remove('active');
@@ -1147,19 +1144,20 @@ function initializeSearch() {
             return;
         }
         
-        // Show only the selected category and load its content
-        document.querySelectorAll('.nav-card').forEach((card, index) => {
-            const categoryName = Object.keys(infrastructureData)[index];
-            if (categoryName === selectedOption) {
+        // Show only the navigation cards that belong to the selected category
+        document.querySelectorAll('.nav-card').forEach(card => {
+            const cardCategory = card.getAttribute('data-category');
+            if (cardCategory === selectedOption) {
                 card.style.display = 'block';
                 card.classList.add('active');
-                // Load the content for the selected category
-                loadCategoryContent(selectedOption);
             } else {
                 card.style.display = 'none';
                 card.classList.remove('active');
             }
         });
+        
+        // Load the content for the selected category
+        loadCategoryContent(selectedOption);
     }
     
     searchDropdown.addEventListener('change', performSearch);
@@ -1169,10 +1167,27 @@ function initializeSearch() {
 function loadWelcomeContent() {
     const content = document.getElementById('content');
     content.innerHTML = `
-        <div class="module-title">Welcome to Your Technical Guide</div>
-        <div class="module-intro">
-            <p>This comprehensive guide breaks down complex developer infrastructure concepts into simple, business-focused explanations. Each section uses real-world analogies and focuses on the practical benefits for your projects.</p>
-            <p><strong>How to use this guide:</strong> Select a category from the dropdown above to explore the technologies in that area. Each concept includes a simple analogy and clear benefits for project managers.</p>
+        <div class="welcome-header">
+            <div class="welcome-icon">🚀</div>
+            <div class="module-title">Welcome to Your Technical Guide</div>
+        </div>
+        
+        <div class="welcome-content">
+            <div class="welcome-card">
+                <div class="welcome-card-icon">📚</div>
+                <div class="welcome-card-content">
+                    <h3>Comprehensive Learning</h3>
+                    <p>This guide breaks down complex developer infrastructure concepts into simple, business-focused explanations. Each section uses real-world analogies and focuses on the practical benefits for your projects.</p>
+                </div>
+            </div>
+            
+            <div class="welcome-card">
+                <div class="welcome-card-icon">🎯</div>
+                <div class="welcome-card-content">
+                    <h3>How to Use This Guide</h3>
+                    <p>Select a topic from the sidebar or use the dropdown above to explore specific technologies. Each concept includes a simple analogy and clear benefits.</p>
+                </div>
+            </div>
         </div>
     `;
 }
