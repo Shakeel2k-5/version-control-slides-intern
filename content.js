@@ -607,6 +607,22 @@ function toggleTopicCompletion(categoryName, topicName, event) {
         button.classList.remove('completed');
         card.classList.remove('completed');
     }
+    
+    // Update the sidebar navigation card
+    updateNavigationCardStatus(categoryName, topicName);
+}
+
+// Update navigation card completion status
+function updateNavigationCardStatus(categoryName, topicName) {
+    const navCard = document.querySelector(`[data-category="${categoryName}"][data-topic="${topicName}"]`);
+    if (navCard) {
+        const isCompleted = isTopicCompleted(categoryName, topicName);
+        if (isCompleted) {
+            navCard.classList.add('completed');
+        } else {
+            navCard.classList.remove('completed');
+        }
+    }
 }
 
 // Check if topic is completed
@@ -647,6 +663,11 @@ function initializeNavigation() {
             navCard.className = 'nav-card';
             navCard.setAttribute('data-category', topicCategory);
             navCard.setAttribute('data-topic', topicName);
+            
+            // Check if this topic is completed and add completed class
+            if (isTopicCompleted(topicCategory, topicName)) {
+                navCard.classList.add('completed');
+            }
             
             navCard.innerHTML = `
                 <div class="nav-item">
@@ -771,12 +792,6 @@ function loadTopicContent(category, topicName) {
         }
     }, 100);
 }
-
-
-
-
-
-
 
 // Load welcome content
 function loadWelcomeContent() {

@@ -921,7 +921,7 @@ function updateProgressDisplay() {
 }
 
 // Mark topic as done/undone
-function toggleTopicCompletion(categoryName, topicName) {
+function toggleTopicCompletion(categoryName, topicName, event) {
     const topicKey = `${categoryName}|${topicName}`;
     
     if (completedTopics.has(topicKey)) {
@@ -1069,7 +1069,7 @@ function loadCategoryContent(category) {
                             </div>
                         `).join('')}
                     </div>
-                    <button class="${buttonClass}" onclick="toggleTopicCompletion('${category}', '${topicName}')">
+                    <button class="${buttonClass}" onclick="toggleTopicCompletion('${category}', '${topicName}', event)">
                         ${buttonText}
                     </button>
                 </div>

@@ -17,6 +17,7 @@ A comprehensive, interactive guide that breaks down complex developer infrastruc
 ### 🔍 Smart Navigation
 - **Category-based Organization**: Content organized into logical infrastructure categories
 - **Search Functionality**: Quick access to specific categories via dropdown
+- **Visual Completion Indicators**: Tick marks (✓) appear on sidebar navigation cards when topics are completed
 - **Responsive Design**: Works seamlessly on desktop and mobile devices
 
 ## How to Use
@@ -24,8 +25,9 @@ A comprehensive, interactive guide that breaks down complex developer infrastruc
 1. **Initial Setup**: On first visit, select 5 technical and 5 non-technical subcategories that match your learning goals
 2. **Browse Categories**: Click on category cards to explore related technologies
 3. **Mark Progress**: Use the "Mark as Done" buttons to track your learning progress
-4. **Search & Filter**: Use the dropdown to quickly navigate between categories
-5. **Track Progress**: Monitor your overall completion percentage and category-specific progress
+4. **Visual Feedback**: See tick marks (✓) appear on sidebar navigation cards when you complete topics
+5. **Search & Filter**: Use the dropdown to quickly navigate between categories
+6. **Track Progress**: Monitor your overall completion percentage and category-specific progress
 
 ## Technical Categories
 
